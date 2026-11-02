@@ -13,6 +13,14 @@ class Tests(unittest.TestCase):
   self.io=types.SimpleNamespace(guard=lambda:None,full_idle=lambda:{'complete':True},before_unlink=lambda p:None)
  def test_exact_backed_up_session_removed_without_capture(self):
   r=cleanup(self.p,self.expected,self.io);self.assertTrue(r['complete'],r);self.assertEqual(len(r['removed']),26);self.assertFalse(self.p.exists());self.assertFalse(r['capture_authorized'])
+ def test_successful_teardown_profile_allows_only_two_exact_raw_files(self):
+  for i in range(24):(self.p/f'format-{i}.bin').unlink()
+  expected={k:v for k,v in self.expected.items() if k.endswith('.raw')}
+  r=cleanup(self.p,expected,self.io,profile='raw_after_verified_teardown');self.assertTrue(r['complete'],r);self.assertEqual(len(r['removed']),2)
+ def test_profile_cannot_hide_unknown_files_or_invent_a_generic_delete(self):
+  expected={k:v for k,v in self.expected.items() if k.endswith('.raw')}
+  for profile in ['raw_after_verified_teardown','any']:
+   r=cleanup(self.p,expected,self.io,profile=profile);self.assertFalse(r['complete']);self.assertEqual(r['removed'],[])
  def test_corruption_unknown_file_or_missing_ack_delete_nothing(self):
   for mode in ['hash','extra','ack']:
    if mode=='hash':self.expected['ir.raw']['sha256']='0'*64

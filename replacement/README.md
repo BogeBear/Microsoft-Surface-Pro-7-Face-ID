@@ -42,9 +42,9 @@ model files. No dependencies are automatically installed or downloaded.
 
 The module's experimental_hardware parameter defaults to0, refusing sensor
 probing. Opt-in also requires an exact Microsoft Surface Pro7 DMI match.
-There is no automatic module installation or boot activation. The operational
-controller and installation/upgrade/uninstall/rollback package are still being
-migrated and are not a completed release in this checkpoint.
+There is no automatic module installation or boot activation. The operational camera controller and persistent driver installation are still
+being migrated. The separate inactive workbench installer is VM-verified;
+it installs source only and does not activate hardware or authentication.
 
 The writer ir_control accepts only capture and off. ir_snapshot returns a
 fixed raw register list. ir_strobe_test is a read-only compatibility view for
@@ -70,3 +70,21 @@ indentation; capture transactions still require their own exact original graph.
 
 No enrollment, PAM/SDDM integration, identity security,3D reconstruction or PAD
 is enabled or claimed. Password fallback remains required.
+
+## New capture verification and inactive package
+
+Two new presence-authorized captures each delivered30RGB+30IR frames and
+completed native/kernel/root shutdown, exact setting restoration and fresh
+eight-device idle checks. Private raw files were hash/fsync-exported and
+removed from device RAM. Only aggregate technical results are published.
+
+The diagnostic UINT8 backend found one face proposal in14/14 brighter IR
+frames per capture after spatial filtering, versus12/14 and13/14 unfiltered.
+A fixed upright RGB central window gave29/30 and17/30; this remains too unstable
+for an authentication claim. The window does not establish absence of other
+people elsewhere. No threshold was lowered; no identity comparison, enrollment,
+PAD or geometric RGB/IR calibration was performed. See PHYSICAL-EVIDENCE.json.
+
+See the companion Manjaro draft for the source-only inactive workbench installer
+and its install/upgrade/uninstall/rollback tests. Installing that package never
+loads a driver or enables a camera, autostart, PAM or SDDM integration.

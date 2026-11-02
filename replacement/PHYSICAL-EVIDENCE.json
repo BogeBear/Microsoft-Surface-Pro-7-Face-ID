@@ -186,9 +186,65 @@
     "optical_pulse_width_power_or_exposure_sync_measured": false
   },
   "limits": [
-    "One object capture and one successful complete-three-gate timer trial, not a reliability population study",
     "Earlier two-gate trials are not optical/full-source-enable proofs",
     "Raw register values do not verify19.2MHz or38.4MHz physical clock hypotheses",
-    "No face matching, enrollment, PAD or login enabled"
-  ]
+    "No face matching, enrollment, PAD or login enabled",
+    "Two new captures from one present participant; no population or negative-participant validation",
+    "Software pixel orientation/window is not stereo calibration or identity verification"
+  ],
+  "two_new_face_captures": {
+    "captures": 2,
+    "each_IR_frames": 30,
+    "each_RGB_frames": 30,
+    "original_passed": [
+      true,
+      true
+    ],
+    "original_error_counts": [
+      0,
+      0
+    ],
+    "full_native_kernel_root_closure": true,
+    "exact_settings_restored": true,
+    "external_full8idle": true,
+    "GUI_finished": true,
+    "raw_export_hash_fsync_verified": true,
+    "raw_RAM_removed": true,
+    "images_or_embeddings_published": false
+  },
+  "new_capture_proposal_analysis": {
+    "IR_brighter_frames_per_capture": [
+      14,
+      14
+    ],
+    "IR_unfiltered_single_proposals": [
+      12,
+      13
+    ],
+    "IR_spatial_filtered_single_proposals": [
+      14,
+      14
+    ],
+    "RGB_central_window_single_proposals": [
+      29,
+      17
+    ],
+    "RGB_frames_per_capture": [
+      30,
+      30
+    ],
+    "proposal_threshold": 0.8,
+    "RGB_rotation_quarters": 2,
+    "IR_rotation_quarters": 1,
+    "RGB_central_window_width_fraction": 0.5,
+    "RGB_central_window_height_fraction": 0.5,
+    "profile_selected_using": "First-capture diagnostic; same orientation/window/color reference applied to second capture",
+    "independent_population_validation": false,
+    "RGB_stability_sufficient_for_login": false,
+    "full_field_multiple_person_exclusion_verified": false,
+    "RGB_IR_geometric_calibration_verified": false,
+    "identity_matching_performed": false,
+    "PAD_verified": false,
+    "authentication_allowed": false
+  }
 }

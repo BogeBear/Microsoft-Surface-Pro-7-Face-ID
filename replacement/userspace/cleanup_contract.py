@@ -6,7 +6,7 @@ from pathlib import Path
 import hashlib,os,re,stat
 from ram_stage import ram_filesystem
 
-def cleanup(directory,expected,io):
+def cleanup(directory,expected,io,profile='restored_failed_trial'):
     result={'complete':False,'removed':[],'errors':[]}
     try:
         p=Path(directory)
@@ -15,7 +15,8 @@ def cleanup(directory,expected,io):
             s=parent.lstat()
             if not stat.S_ISDIR(s.st_mode) or s.st_uid!=0 or s.st_mode&0o022:raise ValueError('Unprotected directory: '+str(parent))
         if p.stat().st_mode&0o777!=0o700 or not ram_filesystem(p):raise ValueError('Private RAM directory required: mode='+oct(p.stat().st_mode&0o777)+',ram='+str(ram_filesystem(p)))
-        if set(expected)!={'ir.raw','rgb.raw',*[f'format-{i}.bin' for i in range(24)]}:raise ValueError('Exact completed session inventory required')
+        inventories={'restored_failed_trial':{'ir.raw','rgb.raw',*[f'format-{i}.bin' for i in range(24)]},'raw_after_verified_teardown':{'ir.raw','rgb.raw'}}
+        if profile not in inventories or set(expected)!=inventories[profile]:raise ValueError('Exact completed session inventory/profile required')
         for name,row in expected.items():
             if set(row)!={'size','sha256','uid','fsynced_backup'} or row['fsynced_backup'] is not True or not re.fullmatch('[a-f0-9]{64}',row['sha256']) or not 0<row['size']<=302330880 or row['uid']!=(1000 if name.endswith('.raw') else 0):raise ValueError('Invalid export acknowledgement')
         io.guard();result['before']=io.full_idle()
