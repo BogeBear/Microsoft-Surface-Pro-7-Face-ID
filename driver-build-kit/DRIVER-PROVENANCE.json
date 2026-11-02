@@ -1,0 +1,85 @@
+{
+  "scope": "Current INT3472 sources only; IPU4 and independent OV7251 have separate provenance",
+  "review_date": "2026-10-23",
+  "publication_preparation_date": "2026-11-02",
+  "files": [
+    {
+      "path": "drivers/int3472/Makefile",
+      "license": "GPL-2.0-only",
+      "reference": {
+        "repository": "gregkh/linux",
+        "commit": "a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea",
+        "path": "drivers/platform/x86/intel/int3472/Makefile",
+        "url": "https://github.com/gregkh/linux/blob/a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea/drivers/platform/x86/intel/int3472/Makefile",
+        "sha256": "34a13fbc664cffee9867bb050da4f99663d054dbe9c847e5f359abb2dbc07c03"
+      },
+      "status": "modified_Linux_regulator_support",
+      "change_summary": "External-module build rule for INT3472 discrete support.",
+      "notice_added": "2026-10-20",
+      "documented_source_date": "2026-10-19",
+      "date_scope": "Dates identify retained project source/build records, not exact first edit times. October20 is the documented timer-v1 source/export stage; October19 the INT3472 7.2.11 build stage.",
+      "sha256": "d7784bfbb6d94ee444c7de819d30f54884ad75d282322a8f85e9c53ab7c56a50",
+      "upstream_notices_preserved": true
+    },
+    {
+      "path": "drivers/int3472/clk_and_regulator.c",
+      "license": "GPL-2.0",
+      "reference": {
+        "repository": "gregkh/linux",
+        "commit": "a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea",
+        "path": "drivers/platform/x86/intel/int3472/clk_and_regulator.c",
+        "url": "https://github.com/gregkh/linux/blob/a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea/drivers/platform/x86/intel/int3472/clk_and_regulator.c",
+        "sha256": "cd8314bc053982136205202a194c66b4dcffe9b8bdc21fbaee5b5afd34b3378f"
+      },
+      "status": "upstream_exact",
+      "sha256": "cd8314bc053982136205202a194c66b4dcffe9b8bdc21fbaee5b5afd34b3378f",
+      "upstream_notices_preserved": true
+    },
+    {
+      "path": "drivers/int3472/discrete.c",
+      "license": "GPL-2.0",
+      "reference": {
+        "repository": "gregkh/linux",
+        "commit": "a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea",
+        "path": "drivers/platform/x86/intel/int3472/discrete.c",
+        "url": "https://github.com/gregkh/linux/blob/a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea/drivers/platform/x86/intel/int3472/discrete.c",
+        "sha256": "494fd5c8976b38e6aded6c22e887e262142191ce543f91956b3cfeedbf28d665"
+      },
+      "status": "modified_Linux_regulator_support",
+      "change_summary": "Map the INT347E power-enable regulator to the supply name vdda expected by OV7251.",
+      "notice_added": "2026-10-20",
+      "date_scope": "Explicit dated project record (2026-10-04), reapplication to Linux 7.2.11 (2026-10-19), notice addition (2026-10-20); earliest edit timestamp is not claimed.",
+      "sha256": "0f9c0a7cda9eed1deb8fef85191bf7dec926c493237ae4966775ca3af25027e9",
+      "upstream_notices_preserved": true
+    },
+    {
+      "path": "drivers/int3472/discrete_quirks.c",
+      "license": "GPL-2.0",
+      "reference": {
+        "repository": "gregkh/linux",
+        "commit": "a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea",
+        "path": "drivers/platform/x86/intel/int3472/discrete_quirks.c",
+        "url": "https://github.com/gregkh/linux/blob/a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea/drivers/platform/x86/intel/int3472/discrete_quirks.c",
+        "sha256": "7dbcf534946cd836ddcfb0ecb780ab3666edf5caf0755cd59ae7d9eefe51fd6f"
+      },
+      "status": "upstream_exact",
+      "sha256": "7dbcf534946cd836ddcfb0ecb780ab3666edf5caf0755cd59ae7d9eefe51fd6f",
+      "upstream_notices_preserved": true
+    },
+    {
+      "path": "drivers/int3472/led.c",
+      "license": "GPL-2.0",
+      "reference": {
+        "repository": "gregkh/linux",
+        "commit": "a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea",
+        "path": "drivers/platform/x86/intel/int3472/led.c",
+        "url": "https://github.com/gregkh/linux/blob/a2de78ee6ed8bf8cd99d177c74865a6e8c3cb6ea/drivers/platform/x86/intel/int3472/led.c",
+        "sha256": "d28ed07109e5137c7d3459feffc7628d3744dd1b65371755011b4792012d135c"
+      },
+      "status": "upstream_exact",
+      "sha256": "d28ed07109e5137c7d3459feffc7628d3744dd1b65371755011b4792012d135c",
+      "upstream_notices_preserved": true
+    }
+  ],
+  "historical_OV7251_test_sources_excluded": true
+}

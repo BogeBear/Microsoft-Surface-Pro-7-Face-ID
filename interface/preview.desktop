@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Surface HAL — preview
+Comment=Preview login artwork without cameras or authentication
+Exec=/opt/sp7-research/current/app/interface/preview.sh
+Icon=video-display
+Terminal=false
+Categories=Development;

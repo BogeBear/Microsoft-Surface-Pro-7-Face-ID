@@ -1,0 +1,33 @@
+{
+  "model": {
+    "id": "opencv_face_detector_uint8.pb",
+    "filename": "model.pb",
+    "upstream_filename": "opencv_face_detector_uint8.pb",
+    "sha256": "5c71d752ef2cbf2f457ac82fdd580fcb2522fd04c5efdaed18eb6d9e2843fbed",
+    "bytes": 2727750,
+    "git_blob": "124bdd1acc82132fc3451144505e6a3400bcdafe",
+    "exact_upstream_identity": true,
+    "source_revision": "7b425df276ba2161b8edaab0f0756f4a735d61b9",
+    "source": "https://github.com/opencv/opencv_3rdparty/blob/7b425df276ba2161b8edaab0f0756f4a735d61b9/opencv_face_detector_uint8.pb",
+    "license": "Apache-2.0",
+    "evidence": "OpenCV publisher model card at pinned Hugging Face revision explicitly identifies the original opencv_3rdparty UINT8 detector as Apache-2.0. Its linked original revision 8033c2bc31b3256f0d461c919ecc01c2428ca03b has the same Git blob 124bdd1acc82132fc3451144505e6a3400bcdafe and size 2727750 as the exact used model already verified in the registry. Scope is supported by the publisher statement and exact source identity, not inferred from library licensing or ONNX similarity.",
+    "no_license_is_inferred_from_absence": false,
+    "weight_bytes_distributed": false,
+    "license_source": "https://huggingface.co/opencv/opencv_contribution/blob/eca0f437e4542635cc6c7b3065fcb1e6e6d5c7dd/opencv_face_detector_uint8/README.md",
+    "license_text_source": "https://huggingface.co/opencv/opencv_contribution/blob/eca0f437e4542635cc6c7b3065fcb1e6e6d5c7dd/opencv_face_detector_uint8/LICENSE",
+    "linked_original_revision": "8033c2bc31b3256f0d461c919ecc01c2428ca03b"
+  },
+  "configuration": {
+    "filename": "model.pbtxt",
+    "sha256": "ca0eb6b3a0e0b124282d093a3d8a9d453967f37af3c1a933978ac55605a8f2cb",
+    "git_blob": "60daa5e6be430366a0580d4d9b40c641884bd94f",
+    "source_revision": "4ffd42f66ae8e554819d86647753f2cec6380748",
+    "source": "https://github.com/opencv/opencv/blob/4ffd42f66ae8e554819d86647753f2cec6380748/samples/dnn/face_detector/opencv_face_detector.pbtxt",
+    "exact_source_match": true,
+    "distributed_in_frozen_candidate": false,
+    "license_scope": "OpenCV sample configuration is distinct from separately hosted trained weights."
+  },
+  "weights_bundled": false,
+  "Caffe_FP16_loader_present": false,
+  "scope": "Only the reviewed exact UINT8 checkpoint/configuration are accepted. Model publisher terms do not grant rights to training images or establish biometric security."
+}

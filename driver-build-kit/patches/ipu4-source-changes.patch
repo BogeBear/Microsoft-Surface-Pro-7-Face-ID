@@ -1,0 +1,1378 @@
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2-be-soc.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2-be-soc.c
+@@ -149,9 +149,13 @@
+ 		       struct v4l2_subdev_format *source_fmt,
+ 		       struct v4l2_subdev_format *sink_fmt)
+ {
+-	struct ipu_isys_pipeline *ip = container_of(media_entity_pipeline(&sd->entity),
+-						    struct ipu_isys_pipeline,
+-						    pipe);
++	struct media_pipeline *pipe = ipu_isys_link_pipeline(link->sink,
++		to_ipu_isys_subdev(sd)->isys->validating_pipeline);
++	struct ipu_isys_pipeline *ip;
++
++	if (!pipe)
++		return -ENOLINK;
++	ip = container_of(pipe, struct ipu_isys_pipeline, pipe);
+ 
+ 	ip->csi2_be_soc = to_ipu_isys_csi2_be_soc(sd);
+ 	return ipu_isys_subdev_link_validate(sd, link, source_fmt, sink_fmt);
+@@ -169,23 +173,8 @@
+ 	    pad->flags & MEDIA_PAD_FL_SOURCE &&
+ 	    asd->valid_tgts[sel->pad].crop) {
+ 		struct v4l2_rect *r;
+-		unsigned int sink_pad = 0;
+-		int i;
+-
+-		for (i = 0; i < asd->nstreams; i++) {
+-			if (!(asd->route[i].flags &
+-			      V4L2_SUBDEV_ROUTE_FL_ACTIVE))
+-				continue;
+-			if (asd->route[i].source == sel->pad) {
+-				sink_pad = asd->route[i].sink;
+-				break;
+-			}
+-		}
+-
+-		if (i == asd->nstreams) {
+-			dev_dbg(&asd->isys->adev->dev, "No sink pad routed.\n");
+-			return -EINVAL;
+-		}
++/* Fixed pad pairing also applies to TRY and inactive routes. */
++		unsigned int sink_pad = sel->pad - asd->nsinks;
+ 		r = __ipu_isys_get_selection(sd, state, sel->target,
+ 					     sink_pad, sel->which);
+ 
+@@ -257,7 +246,13 @@
+ 		u32 code;
+ 		int idx;
+ 
+-		sink_ffmt = __ipu_isys_get_ffmt(sd, state, 0, 0, fmt->which);
++		/* BE SOC routes are fixed sink N -> source N + nsinks.
++		 * Use the matching sink even before default routes are created
++		 * and when negotiating TRY or an inactive route.
++		 */
++		sink_ffmt = __ipu_isys_get_ffmt(sd, state,
++					       fmt->pad - asd->nsinks, 0,
++					       fmt->which);
+ 		code = sink_ffmt->code;
+ 		idx = get_supported_code_index(code);
+ 
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2.c
+@@ -491,11 +491,11 @@
+ 	int i;
+ 	int rval;
+ 
+-	media_pipe = media_entity_pipeline(link->sink->entity);
++	csi2 = to_ipu_isys_csi2(media_entity_to_v4l2_subdev(link->sink->entity));
++	media_pipe = ipu_isys_link_pipeline(link->sink,
++					 csi2->isys->validating_pipeline);
+ 	if (!media_pipe)
+ 		return -EINVAL;
+-	csi2 =
+-	to_ipu_isys_csi2(media_entity_to_v4l2_subdev(link->sink->entity));
+ 	ip = to_ipu_isys_pipeline(media_pipe);
+ 	spin_lock_irqsave(&csi2->receiver_error_lock, flags);
+ 	csi2->receiver_errors = 0;
+@@ -586,9 +586,13 @@
+ 				  struct v4l2_subdev_format *source_fmt,
+ 				  struct v4l2_subdev_format *sink_fmt)
+ {
+-	struct ipu_isys_pipeline *ip = container_of(media_entity_pipeline(&sd->entity),
+-						    struct ipu_isys_pipeline,
+-						    pipe);
++	struct media_pipeline *pipe = ipu_isys_link_pipeline(link->sink,
++			to_ipu_isys_csi2(sd)->isys->validating_pipeline);
++	struct ipu_isys_pipeline *ip;
++
++	if (!pipe)
++		return -ENOLINK;
++	ip = container_of(pipe, struct ipu_isys_pipeline, pipe);
+ 
+ 	if (source_fmt->format.field == V4L2_FIELD_ALTERNATE)
+ 		ip->interlaced = true;
+--- /dev/null
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-front-rgb-policy.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef IPU_ISYS_FRONT_RGB_POLICY_H
++#define IPU_ISYS_FRONT_RGB_POLICY_H
++/* Call after the isys, CSI-2, bus and platform declarations are available. */
++static inline bool ipu_isys_front_rgb_start_route(struct ipu_isys_pipeline *ip)
++{
++#ifdef CONFIG_VIDEO_INTEL_IPU4P
++ return ip && ip->csi2 && ip->csi2->isys && ip->csi2->isys->adev &&
++        ip->csi2->index == 2 && ip->csi2->nlanes == 2 &&
++        ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 7 &&
++        ip->nr_queues == 1 && !ip->interlaced && ip->external &&
++        ip->external->entity &&
++        str_has_prefix(ip->external->entity->name, "ov5693 ") &&
++        ipu4p_isys_get_quirks(&ip->csi2->isys->adev->dev);
++#else
++ return false;
++#endif
++}
++static inline bool ipu_isys_front_rgb_abort_start(struct ipu_isys_pipeline *ip)
++{
++ return ipu_isys_front_rgb_start_route(ip) && atomic_read(&ip->verify_active);
++}
++#endif
+--- /dev/null
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-pipeline-context.h
+@@ -0,0 +1,14 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef IPU_ISYS_PIPELINE_CONTEXT_H
++#define IPU_ISYS_PIPELINE_CONTEXT_H
++/* The caller serializes validating with media_dev.graph_mutex. The media
++ * core validates links before publishing pad->pipe; no ownership is forged.
++ * Outside that synchronous callback, use only actual per-pad ownership.
++ */
++static inline struct media_pipeline *
++ipu_isys_link_pipeline(struct media_pad *sink,
++		       struct media_pipeline *validating)
++{
++	return validating ? validating : media_pad_pipeline(sink);
++}
++#endif
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.c
+@@ -6,6 +6,7 @@
+ #include <linux/device.h>
+ #include <linux/dma-mapping.h>
+ #include <linux/module.h>
++#include <linux/pci.h>
+ #include <linux/string.h>
+ 
+ #include <media/media-entity.h>
+@@ -15,13 +16,50 @@
+ #include "ipu.h"
+ #include "ipu-bus.h"
+ #include "ipu-buttress.h"
++#include "ipu-platform-buttress-regs.h"
+ #include "ipu-isys.h"
+ #include "ipu-isys-csi2.h"
+ #include "ipu-isys-video.h"
++#include "ipu-platform.h"
++#include "ipu-isys-front-rgb-policy.h"
+ 
+ static bool wall_clock_ts_on;
+ module_param(wall_clock_ts_on, bool, 0660);
+ MODULE_PARM_DESC(wall_clock_ts_on, "Timestamp based on REALTIME clock");
++
++/* Diagnostic only: at most 16 records per module load; no rearm interface. */
++static bool ir_timestamp_diag;
++module_param(ir_timestamp_diag, bool, 0444);
++MODULE_PARM_DESC(ir_timestamp_diag,
++		 "Log up to 16 OV7251 timestamp samples; disabled by default");
++static atomic_t ir_timestamp_diag_budget = ATOMIC_INIT(16);
++
++struct ir_timestamp_sample {
++	u64 cpu_sample_ns;
++	u64 before_read_ns;
++	u64 after_read_ns;
++	u64 tsc_now;
++	u64 fw_tsc;
++	u64 converted_delta_ns;
++	u64 control_before_ns;
++	u64 control_after_ns;
++	u32 btrs_ctrl;
++	u32 control_sampled;
++	u16 pci_device;
++	u8 pci_revision;
++	int read_ret;
++};
++
++static bool ir_timestamp_diag_take(struct ipu_isys_pipeline *ip)
++{
++	if (!ir_timestamp_diag || !ip->has_sof || ip->interlaced ||
++	    ip->source != IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 ||
++	    ip->nr_queues != 1 || !ip->external || !ip->external->entity ||
++	    !str_has_prefix(ip->external->entity->name, "ov7251 "))
++		return false;
++
++	return atomic_add_unless(&ir_timestamp_diag_budget, -1, 0);
++}
+ 
+ static int queue_setup(struct vb2_queue *q,
+ 		       unsigned int *num_buffers, unsigned int *num_planes,
+@@ -588,6 +626,36 @@
+  * best effort - stops when the incoming queues are empty and propagates
+  * send failures so stream start can roll back active buffers.
+  */
++/* Startup-only snapshots; counts from separate queues are not atomic together. */
++static void ir_trace_queues(struct ipu_isys_pipeline *ip, const char *phase,
++			    int result)
++{
++	struct ipu_isys_video *av = container_of(ip, struct ipu_isys_video, ip);
++	struct ipu_isys_queue *aq;
++
++	if (ip->source != IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6)
++		return;
++
++	list_for_each_entry(aq, &ip->queues, node) {
++		struct ipu_isys_buffer *ib;
++		unsigned long flags;
++		unsigned int incoming = 0, active = 0;
++
++		spin_lock_irqsave(&aq->lock, flags);
++		list_for_each_entry(ib, &aq->incoming, head)
++			incoming++;
++		list_for_each_entry(ib, &aq->active, head)
++			active++;
++		spin_unlock_irqrestore(&aq->lock, flags);
++		dev_info(&av->isys->adev->dev,
++			 "IRLIFE phase=%s handle=%d queue=%s incoming=%u active=%u clean=%u verify=%d result=%d\n",
++			 phase, ip->stream_handle,
++			 ipu_isys_queue_to_video(aq)->vdev.name, incoming, active,
++			 (unsigned int)atomic_read(&ip->frames_done),
++			 atomic_read(&ip->verify_active), result);
++	}
++}
++
+ static int stream_capture_refeed(struct ipu_isys_pipeline *ip)
+ {
+ 	struct ipu_isys_video *pipe_av =
+@@ -652,6 +720,12 @@
+  * caller rolls the stream back and returns its buffers before reporting
+  * STREAMON failure.
+  */
++static bool ipu_isys_start_frames_ready(struct ipu_isys_pipeline *ip,
++					unsigned int before, unsigned int minimum)
++{
++	return (unsigned int)(atomic_read(&ip->frames_done) - before) >= minimum;
++}
++
+ static int verify_stream_start(struct ipu_isys_pipeline *ip,
+ 			       unsigned int frames_done_before_start)
+ {
+@@ -661,50 +735,73 @@
+ 	struct v4l2_subdev *esd;
+ 	unsigned long flags;
+ 	unsigned int retry, tick;
++	unsigned int min_frames = 1, max_retries = 30, wait_ticks = 12;
++	bool ir_start, rgb_start;
+ 	u32 fatal_receiver_errors, last_receiver_errors;
+ 	int rval;
+ 
+ 	if (!ip->csi2 || !ip->external || ip->interlaced)
+ 		return 0;
+-	if (atomic_read(&ip->frames_done) != frames_done_before_start)
++	/* This experiment is restricted to the SP7 single-output IR route. */
++	ir_start = ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 &&
++		ip->nr_queues == 1 &&
++		str_has_prefix(ip->external->entity->name, "ov7251 ");
++	rgb_start = ipu_isys_front_rgb_start_route(ip);
++	if (ir_start) {
++		min_frames = 3;
++		wait_ticks = 12; /* Restore 600 ms for each IR start attempt. */
++		max_retries = 2;
++		dev_info(dev, "IRGATE start min_frames=%u max_retries=%u wait_ms=%u\n",
++			 min_frames, max_retries, wait_ticks * 50);
++	}
++	/* Bound only the exact SP7 front RGB path: at most 3 x 600 ms.
++	 * Keep IR's 3-frame gate and every other receiver's policy unchanged.
++	 */
++	if (rgb_start) {
++		max_retries = 2;
++		dev_info(dev, "RGBGATE start min_frames=%u max_retries=%u wait_ms=%u\n",
++			 min_frames, max_retries, wait_ticks * 50);
++	}
++	if (ipu_isys_start_frames_ready(ip, frames_done_before_start, min_frames))
+ 		return 0;
+ 
+ 	esd = media_entity_to_v4l2_subdev(ip->external->entity);
+ 
+ 	atomic_set(&ip->verify_active, 1);
++	ir_trace_queues(ip, "verify-enter", 0);
+ 
+ 	/*
+-	 * Lock probability per attempt varies session to session (observed
+-	 * ~20-70%); 30 retries keeps the miss-all chance negligible even on
+-	 * bad days, and costs nothing when the lock comes early (the loop
+-	 * exits on the first error-free frame). Observe the final attempt too;
+-	 * exhausting the retry budget is a stream-start failure.
++	 * Keep legacy policy outside this exact SP7 route. IR's one-clean-frame-then-stall
++	 * failure needs more than one clean notification to pass this gate.
++	 * Bound IR sensor-only retries so userspace can close the stream and
++	 * use the existing full ISYS recovery between independent attempts.
+ 	 */
+ 	rval = -ETIMEDOUT;
+-	for (retry = 0; retry <= 30; retry++) {
+-		if (atomic_read(&ip->frames_done) != frames_done_before_start) {
++	for (retry = 0; retry <= max_retries; retry++) {
++		if (ipu_isys_start_frames_ready(ip, frames_done_before_start, min_frames)) {
+ 			rval = 0;
+ 			break;
+ 		}
+-		for (tick = 0; tick < 12; tick++) {
++		for (tick = 0; tick < wait_ticks; tick++) {
+ 			msleep(50);
+-			if (atomic_read(&ip->frames_done) !=
+-			    frames_done_before_start)
++			if (ipu_isys_start_frames_ready(ip, frames_done_before_start,
++							min_frames))
+ 				break;
+ 		}
+-		if (atomic_read(&ip->frames_done) != frames_done_before_start) {
++		if (ipu_isys_start_frames_ready(ip, frames_done_before_start, min_frames)) {
+ 			rval = 0;
+ 			break;
+ 		}
+-		if (retry == 30) {
++		if (retry == max_retries) {
+ 			dev_err(dev,
+-				"no clean frames from %s after %u sensor attempts\n",
+-				ip->external->entity->name, retry + 1);
++				"insufficient clean frames from %s after %u sensor attempts (need %u)\n",
++				ip->external->entity->name, retry + 1, min_frames);
+ 			break;
+ 		}
+ 		dev_warn_ratelimited(dev,
+-			 "no frames from %s after start; bouncing sensor (retry %u)\n",
++			 "insufficient clean frames from %s after start; bouncing sensor (retry %u)\n",
+ 			 ip->external->entity->name, retry + 1);
++		ir_trace_queues(ip, "before-bounce", rval);
+ 		rval = v4l2_subdev_call(esd, video, s_stream, 0);
+ 		if (rval) {
+ 			dev_err(dev,
+@@ -730,6 +827,16 @@
+ 				last_receiver_errors);
+ 		}
+ 		msleep(20);
++		/* Never add isolated good IR frames from different attempts. */
++		if (ir_start)
++			frames_done_before_start = atomic_read(&ip->frames_done);
++		/* Queue parked IR buffers while the sensor is still in standby. */
++		if (ir_start) {
++			rval = stream_capture_refeed(ip);
++			ir_trace_queues(ip, "before-restart-refeed", rval);
++			if (rval)
++				break;
++		}
+ 		rval = v4l2_subdev_call(esd, video, s_stream, 1);
+ 		if (rval) {
+ 			dev_err(dev,
+@@ -737,24 +844,103 @@
+ 				ip->external->entity->name, rval);
+ 			break;
+ 		}
+-		/* hand parked (corrupt-frame) buffers back to the fw */
+-		rval = stream_capture_refeed(ip);
+-		if (rval)
+-			break;
++		ir_trace_queues(ip, ir_start ? "sensor-restarted-after-refeed" :
++				"sensor-restarted-before-refeed", rval);
++		/* Preserve the existing ordering for non-IR streams. */
++		if (!ir_start) {
++			rval = stream_capture_refeed(ip);
++			ir_trace_queues(ip, "after-bounce-refeed", rval);
++			if (rval)
++				break;
++		}
+ 		rval = -ETIMEDOUT;
++	}
++
++	/*
++	 * Failed IR or selected front RGB verification must not submit more capture work. Keep
++	 * corrupt returns parked until rollback has stopped the firmware
++	 * and returns its buffers as QUEUED for the failed STREAMON.
++	 */
++	if ((ir_start || rgb_start) && rval) {
++		ir_trace_queues(ip, "verify-failed-no-refeed", rval);
++		return rval;
+ 	}
+ 
+ 	/*
+ 	 * Stop parking first, then hand back any buffer parked since
+ 	 * the last refeed, so nothing is left stranded on incoming.
+ 	 */
++	ir_trace_queues(ip, "verify-exit-before-refeed", rval);
+ 	atomic_set(&ip->verify_active, 0);
+ 	if (!rval)
+ 		rval = stream_capture_refeed(ip);
+ 	else
+ 		stream_capture_refeed(ip);
++	ir_trace_queues(ip, "verify-exit-after-refeed", rval);
+ 
+ 	return rval;
++}
++
++/*
++ * A failed vb2 start callback must return ALL buffers as QUEUED, including
++ * frames completed by firmware before sensor start / verification finishes.
++ * Limit this transaction to the single-output, progressive, non-request IR
++ * path. Deferred starts occur after vb2 STREAMON succeeded and keep their
++ * existing ERROR completion policy.
++ */
++static struct ipu_isys_queue *ir_start_buffers_begin(
++	struct ipu_isys_pipeline *ip, bool has_buffer, bool error, bool has_request)
++{
++	struct ipu_isys_queue *aq;
++	unsigned long flags;
++
++	if (error || !has_buffer || has_request || ip->interlaced ||
++	    ip->source != IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 ||
++	    ip->nr_queues != 1 || !ip->external ||
++	    !str_has_prefix(ip->external->entity->name, "ov7251 "))
++		return NULL;
++	aq = list_first_entry(&ip->queues, struct ipu_isys_queue, node);
++	spin_lock_irqsave(&aq->lock, flags);
++	if (aq->ir_start_pending || !list_empty(&aq->ir_start_done)) {
++		spin_unlock_irqrestore(&aq->lock, flags);
++		return ERR_PTR(-EBUSY);
++	}
++	aq->ir_start_pending = true;
++	spin_unlock_irqrestore(&aq->lock, flags);
++	return aq;
++}
++
++/* Called only after all fallible start operations or firmware rollback. */
++static void ir_start_buffers_finish(struct ipu_isys_queue *aq, bool success)
++{
++	LIST_HEAD(done);
++	LIST_HEAD(failed);
++	struct ipu_isys_buffer *ib, *next;
++	unsigned long flags;
++
++	if (!aq)
++		return;
++	spin_lock_irqsave(&aq->lock, flags);
++	if (success) {
++		list_splice_tail_init(&aq->ir_start_done, &done);
++		/* Corrupt returns may arrive during the last verification refeed. */
++		list_splice_tail_init(&aq->incoming, &failed);
++	} else {
++		/* start_streaming's return_buffers supplies QUEUED exactly once. */
++		list_splice_tail_init(&aq->ir_start_done, &aq->incoming);
++	}
++	aq->ir_start_pending = false;
++	spin_unlock_irqrestore(&aq->lock, flags);
++
++	list_for_each_entry_safe(ib, next, &done, head) {
++		list_del_init(&ib->head);
++		ipu_isys_queue_buf_done(ib);
++	}
++	list_for_each_entry_safe(ib, next, &failed, head) {
++		list_del_init(&ib->head);
++		vb2_buffer_done(ipu_isys_buffer_to_vb2_buffer(ib),
++				VB2_BUF_STATE_ERROR);
++	}
+ }
+ 
+ static int ipu_isys_stream_start(struct ipu_isys_pipeline *ip,
+@@ -767,6 +953,7 @@
+ 	struct ipu_isys_request *ireq = NULL;
+ 	unsigned int frames_done_before_start = atomic_read(&ip->frames_done);
+ 	bool stream_started = false;
++	struct ipu_isys_queue *start_aq = NULL;
+ 	enum vb2_buffer_state buffer_state = error ? VB2_BUF_STATE_ERROR :
+ 		VB2_BUF_STATE_QUEUED;
+ 	int rval;
+@@ -774,6 +961,14 @@
+ 	mutex_lock(&pipe_av->isys->stream_mutex);
+ 	/* Remember the request start_stream_firmware may dequeue on failure. */
+ 	ireq = ipu_isys_find_queued_request(ip, false);
++	start_aq = ir_start_buffers_begin(ip, bl != NULL, error, ireq != NULL);
++	if (IS_ERR(start_aq)) {
++		rval = PTR_ERR(start_aq);
++		start_aq = NULL;
++		mutex_unlock(&pipe_av->isys->stream_mutex);
++		goto out_requeue;
++	}
++
+ 
+ 	dev_info(&pipe_av->isys->adev->dev,
+ 		 "IRTRACE pipeline stream begin source=%u frames_done=%u\n",
+@@ -884,10 +1079,15 @@
+ 	 * stream health be judged (and a D-PHY relock bounce actually
+ 	 * result in observable frames); see the function's comment.
+ 	 */
++	rval = ipu_isys_video_start_queued_sensor(pipe_av);
++	if (rval)
++		goto out_requeue;
++
+ 	rval = verify_stream_start(ip, frames_done_before_start);
+ 	if (rval)
+ 		goto out_requeue;
+ 
++	ir_start_buffers_finish(start_aq, true);
+ 	return 0;
+ 
+ out_requeue:
+@@ -900,7 +1100,9 @@
+ 		int stop_rval;
+ 
+ 		mutex_lock(&pipe_av->isys->stream_mutex);
++		ir_trace_queues(ip, "rollback-before-stop", rval);
+ 		stop_rval = ipu_isys_video_set_streaming(pipe_av, 0, NULL);
++		ir_trace_queues(ip, "rollback-after-stop", stop_rval);
+ 		mutex_unlock(&pipe_av->isys->stream_mutex);
+ 		if (stop_rval) {
+ 			dev_err(&pipe_av->isys->adev->dev,
+@@ -923,6 +1125,9 @@
+ 					    0),
+ 					   buffer_state);
+ 	flush_firmware_streamon_fail(ip, buffer_state);
++	ir_start_buffers_finish(start_aq, false);
++	atomic_set(&ip->verify_active, 0);
++	ir_trace_queues(ip, "rollback-buffers-returned", rval);
+ 
+ 	return rval;
+ }
+@@ -1227,6 +1432,43 @@
+ 	}
+ }
+ 
++/* vb2 callback still owns the queue mutex. Snapshot after all returns. */
++static void ir_failed_start_receipt(struct ipu_isys_queue *aq,
++				  unsigned int expected, int error)
++{
++	struct ipu_isys_video *av = ipu_isys_queue_to_video(aq);
++	struct vb2_queue *q = &aq->vbq;
++	unsigned int i, queued = 0, active = 0, completed = 0;
++	unsigned long flags;
++	bool done_empty, held_empty;
++
++	/* This receipt is intentionally limited to the diagnostic's eight buffers. */
++	if (expected != 8 || q->max_num_buffers > 64)
++		return;
++	for (i = 0; i < q->max_num_buffers; i++) {
++		struct vb2_buffer *vb = vb2_get_buffer(q, i);
++		if (!vb)
++			continue;
++		switch (READ_ONCE(vb->state)) {
++		case VB2_BUF_STATE_QUEUED: queued++; break;
++		case VB2_BUF_STATE_ACTIVE: active++; break;
++		case VB2_BUF_STATE_DONE:
++		case VB2_BUF_STATE_ERROR: completed++; break;
++		default: break;
++		}
++	}
++	spin_lock_irqsave(&q->done_lock, flags);
++	done_empty = list_empty(&q->done_list);
++	spin_unlock_irqrestore(&q->done_lock, flags);
++	spin_lock_irqsave(&aq->lock, flags);
++	held_empty = list_empty(&aq->ir_start_done) && !aq->ir_start_pending;
++	spin_unlock_irqrestore(&aq->lock, flags);
++	dev_info(&av->isys->adev->dev,
++		 "IRBUF version=1 errno=%d expected=%u queued=%u active=%u completed=%u owned=%d done_empty=%u held_empty=%u\n",
++		 error, expected, queued, active, completed,
++		 atomic_read(&q->owned_by_drv_count), done_empty, held_empty);
++}
++
+ static int start_streaming(struct vb2_queue *q, unsigned int count)
+ {
+ 	struct ipu_isys_queue *aq = vb2_queue_to_ipu_isys_queue(q);
+@@ -1314,6 +1556,7 @@
+ out_return_buffers:
+ 	mutex_unlock(&av->isys->stream_mutex);
+ 	return_buffers(aq, VB2_BUF_STATE_QUEUED);
++	ir_failed_start_receipt(aq, count, rval);
+ 
+ 	return rval;
+ }
+@@ -1388,20 +1631,63 @@
+ 	return 0;
+ }
+ 
++/* Read-only extension of the EXISTING 16-sample diagnostic budget.
++ * Called only for an already-active, qualifying OV7251/SOF timestamp sample.
++ * Raw control bits are deliberately NOT interpreted using another IPU family.
++ * No PM wake, synchronization, register write, light or timestamp conversion.
++ */
++static void ir_timestamp_read_control(struct ipu_device *isp,
++                                      struct ir_timestamp_sample *sample)
++{
++	if (!sample)
++		return;
++	sample->control_before_ns = 0;
++	sample->control_after_ns = 0;
++	sample->btrs_ctrl = 0;
++	sample->control_sampled = 0;
++	sample->pci_device = 0;
++	sample->pci_revision = 0;
++	if (sample->read_ret || !isp || !isp->base || !isp->pdev)
++		return;
++	sample->pci_device = isp->pdev->device;
++	sample->pci_revision = isp->pdev->revision;
++	sample->control_before_ns = ktime_get_ns();
++	sample->btrs_ctrl = readl(isp->base + BUTTRESS_REG_BTRS_CTRL);
++	sample->control_after_ns = ktime_get_ns();
++	sample->control_sampled = 1;
++}
++
+ static u64 get_sof_ns_delta(struct ipu_isys_video *av,
+-			    struct ipu_fw_isys_resp_info_abi *info)
++			    struct ipu_fw_isys_resp_info_abi *info,
++			    struct ir_timestamp_sample *sample)
+ {
+ 	struct ipu_bus_device *adev = to_ipu_bus_device(&av->isys->adev->dev);
+ 	struct ipu_device *isp = adev->isp;
+-	u64 delta, tsc_now;
+-
+-	if (!ipu4_buttress_tsc_read(isp, &tsc_now))
++	u64 delta, converted, tsc_now = 0;
++	int ret;
++
++	if (sample)
++		sample->before_read_ns = ktime_get_ns();
++	ret = ipu4_buttress_tsc_read(isp, &tsc_now);
++	if (sample) {
++		sample->after_read_ns = ktime_get_ns();
++		sample->read_ret = ret;
++		sample->tsc_now = tsc_now;
++		sample->fw_tsc = (u64)info->timestamp[1] << 32 |
++				 info->timestamp[0];
++	}
++	if (!ret)
+ 		delta = tsc_now -
+ 		    ((u64) info->timestamp[1] << 32 | info->timestamp[0]);
+ 	else
+ 		delta = 0;
+ 
+-	return ipu4_buttress_tsc_ticks_to_ns(delta);
++	converted = ipu4_buttress_tsc_ticks_to_ns(delta);
++	if (sample) {
++		sample->converted_delta_ns = converted;
++		ir_timestamp_read_control(isp, sample);
++	}
++	return converted;
+ }
+ 
+ void
+@@ -1414,15 +1700,21 @@
+ 	struct ipu_isys_video *av = ipu_isys_queue_to_video(aq);
+ 	struct ipu_isys_pipeline *ip =
+ 	    to_ipu_isys_pipeline(media_entity_pipeline(&av->vdev.entity));
++	struct ir_timestamp_sample sample;
++	bool wall_clock = READ_ONCE(wall_clock_ts_on);
++	bool diagnostic = false;
+ 	u64 ns;
+ 	u32 sequence;
+ 
+ 	if (ip->has_sof) {
+-		ns = (wall_clock_ts_on) ? ktime_get_real_ns() : ktime_get_ns();
+-		ns -= get_sof_ns_delta(av, info);
++		ns = (wall_clock) ? ktime_get_real_ns() : ktime_get_ns();
++		diagnostic = !wall_clock && ir_timestamp_diag_take(ip);
++		if (diagnostic)
++			sample.cpu_sample_ns = ns;
++		ns -= get_sof_ns_delta(av, info, diagnostic ? &sample : NULL);
+ 		sequence = get_sof_sequence_by_timestamp(ip, info);
+ 	} else {
+-		ns = ((wall_clock_ts_on) ? ktime_get_real_ns() :
++		ns = ((wall_clock) ? ktime_get_real_ns() :
+ 		      ktime_get_ns());
+ 		sequence = (atomic_inc_return(&ip->sequence) - 1)
+ 		    / ip->nr_queues;
+@@ -1430,6 +1722,21 @@
+ 
+ 	vbuf->vb2_buf.timestamp = ns;
+ 	vbuf->sequence = sequence;
++
++	if (diagnostic) {
++		dev_info(&av->isys->adev->dev,
++			 "IRTS_DIAG version=1 clock=MONOTONIC source=%d handle=%d sequence=%u error=%u cpu_ns=%llu before_read_ns=%llu after_read_ns=%llu read_ret=%d tsc_now=0x%llx fw_tsc=0x%llx delta_ns=%llu out_ns=%llu\n",
++			 ip->source, ip->stream_handle, sequence,
++			 info->error_info.error, sample.cpu_sample_ns,
++			 sample.before_read_ns, sample.after_read_ns, sample.read_ret,
++			 sample.tsc_now, sample.fw_tsc, sample.converted_delta_ns, ns);
++		dev_info(&av->isys->adev->dev,
++			 "IRCLK_DIAG version=1 source=%d handle=%d sequence=%u cpu_ns=%llu sampled=%u reg=0x0000000c value=0x%08x before_read_ns=%llu after_read_ns=%llu pci_device=0x%04x pci_revision=0x%02x\n",
++			 ip->source, ip->stream_handle, sequence, sample.cpu_sample_ns,
++			 sample.control_sampled, sample.btrs_ctrl,
++			 sample.control_before_ns, sample.control_after_ns,
++			 (unsigned int)sample.pci_device, (unsigned int)sample.pci_revision);
++	}
+ 
+ 	dev_dbg(&av->isys->adev->dev, "buffer: %s: buffer done, CPU-timestamp:%lld, sequence:%d, vc:%d, index:%d, vbuf timestamp:%lld, endl\n",
+ 		av->vdev.name, ktime_get_ns(), sequence, ip->vc, vb->index, vbuf->vb2_buf.timestamp);
+@@ -1532,6 +1839,22 @@
+ 					&addr);
+ 			first = false;
+ 			continue;
++		}
++
++		if (aq->ir_start_pending) {
++			atomic_set(&ib->str2mmio_flag, 0);
++			if (info->error_info.error) {
++				/* Retry loop can reuse corrupt buffers without completing vb2. */
++				list_move(&ib->head, &aq->incoming);
++			} else {
++				/* IRQ-safe metadata calculation before exposing the held list. */
++				buf = to_vb2_v4l2_buffer(vb);
++				buf->field = V4L2_FIELD_NONE;
++				ipu_isys_buf_calc_sequence_time(ib, info);
++				list_move_tail(&ib->head, &aq->ir_start_done);
++			}
++			spin_unlock_irqrestore(&aq->lock, flags);
++			return;
+ 		}
+ 
+ 		if (info->error_info.error ==
+@@ -1858,6 +2181,8 @@
+ 	spin_lock_init(&aq->lock);
+ 	INIT_LIST_HEAD(&aq->active);
+ 	INIT_LIST_HEAD(&aq->incoming);
++	INIT_LIST_HEAD(&aq->ir_start_done);
++	aq->ir_start_pending = false;
+ 
+ 	return 0;
+ }
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.h
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.h
+@@ -31,6 +31,9 @@
+ 	spinlock_t lock;
+ 	struct list_head active;
+ 	struct list_head incoming;
++	/* Protected by lock: vb2 start callback has not committed yet. */
++	bool ir_start_pending;
++	struct list_head ir_start_done;
+ 	u32 css_pin_type;
+ 	unsigned int fw_output;
+ 	int (*buf_init)(struct vb2_buffer *vb);
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys-subdev.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-subdev.c
+@@ -294,6 +294,13 @@
+ 					MEDIA_PAD_FL_SOURCE))
+ 				continue;
+ 
++/* BE SOC has independent fixed sink/source pairs.  Other
++			 * entities retain their existing fan-out propagation.
++			 */
++			if (asd->be_mode == IPU_BE_SOC &&
++			    i != pad + asd->nsinks)
++				continue;
++
+ 			compose[i]->left = 0;
+ 			compose[i]->top = 0;
+ 			compose[i]->width = r->width;
+@@ -1062,10 +1069,16 @@
+ {
+ 	struct v4l2_subdev *source_sd =
+ 	    media_entity_to_v4l2_subdev(link->source->entity);
+-	struct ipu_isys_pipeline *ip = container_of(media_entity_pipeline(&sd->entity),
+-						    struct ipu_isys_pipeline,
+-						    pipe);
+-	struct ipu_isys_subdev *asd = to_ipu_isys_subdev(sd);
++	struct ipu_isys_subdev *asd = to_ipu_isys_subdev(sd);
++	struct media_pipeline *pipe = asd->isys->validating_pipeline ?
++		asd->isys->validating_pipeline :
++		(asd->be_mode == IPU_BE_SOC ? media_pad_pipeline(link->sink) :
++		 media_entity_pipeline(&sd->entity));
++	struct ipu_isys_pipeline *ip;
++
++	if (!pipe)
++		return -ENOLINK;
++	ip = container_of(pipe, struct ipu_isys_pipeline, pipe);
+ 
+ 	if (!source_sd)
+ 		return -ENODEV;
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.c
+@@ -24,6 +24,8 @@
+ #include "ipu-isys.h"
+ #include "ipu-isys-csi2.h"
+ #include "ipu-isys-video.h"
++#include "ipu-platform.h"
++#include "ipu-isys-front-rgb-policy.h"
+ #include "ipu-platform.h"
+ #include "ipu-platform-regs.h"
+ #include "ipu-platform-buttress-regs.h"
+@@ -1383,6 +1385,19 @@
+ #endif
+ }
+ 
++/* BE SOC carries independent fixed pad routes.  Entity-wide walks merge
++ * otherwise unrelated sensors at the shared BE entity; use the media core's
++ * pad-aware pipeline ownership for these capture nodes.
++ */
++static bool ipu_isys_be_soc_capture(struct ipu_isys_video *av)
++{
++	struct media_pad *remote = media_pad_remote_pad_first(&av->pad);
++
++	return remote && remote->flags & MEDIA_PAD_FL_SOURCE &&
++		!strcmp(remote->entity->name,
++			IPU_ISYS_ENTITY_PREFIX " CSI2 BE SOC");
++}
++
+ static void media_pipeline_stop_for_vc(struct ipu_isys_video *av)
+ {
+ 	struct media_pipeline *pipe = av->pad.pipe;
+@@ -1390,6 +1405,11 @@
+ 	struct media_device *mdev = entity->graph_obj.mdev;
+ 	struct media_graph graph;
+ 	int ret;
++
++	if (ipu_isys_be_soc_capture(av)) {
++		media_pipeline_stop(&av->pad);
++		return;
++	}
+ 
+ 	/*
+ 	 * If the following check fails, the driver has performed an
+@@ -1585,7 +1605,18 @@
+ 	int ret;
+ 
+ 	mutex_lock(&mdev->graph_mutex);
+-	ret = media_pipeline_walk_by_vc(av, pipe);
++	if (ipu_isys_be_soc_capture(av)) {
++		/* Callbacks run before the media core publishes pad ownership. */
++		if (av->isys->validating_pipeline) {
++			ret = -EBUSY;
++		} else {
++			av->isys->validating_pipeline = pipe;
++			ret = __media_pipeline_start(&av->pad, pipe);
++			av->isys->validating_pipeline = NULL;
++		}
++	} else {
++		ret = media_pipeline_walk_by_vc(av, pipe);
++	}
+ 	mutex_unlock(&mdev->graph_mutex);
+ 
+ 	return ret;
+@@ -1885,6 +1916,9 @@
+ 
+ 	tout = wait_for_completion_timeout(&ip->stream_close_completion,
+ 					   IPU_LIB_CALL_TIMEOUT_JIFFIES);
++	if (ipu_isys_front_rgb_start_route(ip))
++		dev_info(dev, "RGBLIFE close-wait handle=%d completed=%u error=%d\n",
++			 ip->stream_handle, !!tout, ip->error);
+ 	if (!tout) {
+ 		close_failed = true;
+ 		dev_err(dev,
+@@ -1927,10 +1961,29 @@
+ 
+ 	reinit_completion(&ip->stream_stop_completion);
+ 
+-	/* Use STOP command if running in CSI capture mode */
+-	if (use_stream_stop)
++	/*
++	 * FLUSH completes queued captures; STOP aborts that backlog. An IR
++	 * start that failed verification, or a verified IR stream whose
++	 * last delivered buffer was corrupt, may have stuck capture requests.
++	 * SOF/EOF responses overwrite ip->error, so inspect the last data
++	 * response separately. Clean IR and RGB streams keep their policy. Failed bounded front RGB
++	 * verification uses STOP as well; other RGB routes are unchanged.
++	 */
++	if (use_stream_stop || ipu_isys_front_rgb_abort_start(ip) ||
++	    (ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 &&
++	     ip->nr_queues == 1 && !ip->interlaced && ip->external &&
++	     str_has_prefix(ip->external->entity->name, "ov7251 ") &&
++	     (atomic_read(&ip->verify_active) ||
++	      atomic_read(&ip->last_pin_error))))
+ 		send_type = IPU_FW_ISYS_SEND_TYPE_STREAM_STOP;
+ 
++	if (ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6)
++		dev_info(dev, "IRLIFE stop-send type=%u handle=%d error_before=%d last_pin_error=%d\n",
++			 send_type, ip->stream_handle, ip->error,
++			 atomic_read(&ip->last_pin_error));
++	if (ipu_isys_front_rgb_start_route(ip))
++		dev_info(dev, "RGBLIFE stop-send type=%u handle=%d verify_active=%d\n",
++			 send_type, ip->stream_handle, atomic_read(&ip->verify_active));
+ 	rval = ipu_fw_isys_simple_cmd(av->isys, ip->stream_handle,
+ 				      send_type);
+ 
+@@ -1942,6 +1995,12 @@
+ 
+ 	tout = wait_for_completion_timeout(&ip->stream_stop_completion,
+ 					   IPU_LIB_CALL_TIMEOUT_JIFFIES);
++	if (ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6)
++		dev_info(dev, "IRLIFE stop-wait handle=%d completed=%u error_after=%d\n",
++			 ip->stream_handle, !!tout, ip->error);
++	if (ipu_isys_front_rgb_start_route(ip))
++		dev_info(dev, "RGBLIFE stop-wait handle=%d completed=%u error=%d\n",
++			 ip->stream_handle, !!tout, ip->error);
+ 	if (!tout) {
+ 		dev_err(dev,
+ 			"stream stop time out (source=%u handle=%d vc=%u stream_id=%u send_type=%u)\n",
+@@ -2073,6 +2132,7 @@
+ 	ip->external = NULL;
+ 	atomic_set(&ip->sequence, 0);
+ 	atomic_set(&ip->frames_done, 0);
++	atomic_set(&ip->last_pin_error, 0);
+ 	ip->isl_mode = IPU_ISL_OFF;
+ 
+ 	for (i = 0; i < IPU_NUM_CAPTURE_DONE; i++)
+@@ -2109,11 +2169,25 @@
+ 
+ 	/* Gather all entities in the graph and count video queues. */
+ 	mutex_lock(&mdev->graph_mutex);
+-	media_graph_walk_start(&graph, &av->vdev.entity);
+-	while ((entity = media_graph_walk_next(&graph))) {
+-		media_entity_enum_set(&ip->entity_enum, entity);
+-		if (is_media_entity_v4l2_video_device(entity))
+-			ip->nr_queues++;
++	if (ipu_isys_be_soc_capture(av)) {
++		struct media_pipeline_pad_iter iter;
++		struct media_pad *pad;
++
++		media_pipeline_for_each_pad(&ip->pipe, &iter, pad) {
++			entity = pad->entity;
++			if (media_entity_enum_test(&ip->entity_enum, entity))
++				continue;
++			media_entity_enum_set(&ip->entity_enum, entity);
++			if (is_media_entity_v4l2_video_device(entity))
++				ip->nr_queues++;
++		}
++	} else {
++		media_graph_walk_start(&graph, &av->vdev.entity);
++		while ((entity = media_graph_walk_next(&graph))) {
++			media_entity_enum_set(&ip->entity_enum, entity);
++			if (is_media_entity_v4l2_video_device(entity))
++				ip->nr_queues++;
++		}
+ 	}
+ 
+ 	mutex_unlock(&mdev->graph_mutex);
+@@ -2249,6 +2323,43 @@
+ 	return v4l2_subdev_disable_streams(sd, pad, streams_mask);
+ }
+ 
++/* Submit every capture buffer before the first IR streaming transition. */
++static bool ipu_isys_ir_defer_sensor(struct ipu_isys_pipeline *ip)
++{
++	return ip->csi2 && ip->external && ip->external->entity &&
++	       ip->nr_queues == 1 &&
++	       ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 &&
++	       str_has_prefix(ip->external->entity->name, "ov7251 ");
++}
++
++int ipu_isys_video_start_queued_sensor(struct ipu_isys_video *av)
++{
++	struct ipu_isys_pipeline *ip = &av->ip;
++	struct device *dev = &av->isys->adev->dev;
++	struct v4l2_subdev *esd;
++	int ret;
++
++	if (!ipu_isys_ir_defer_sensor(ip))
++		return 0;
++	if (!ip->ir_sensor_prepared ||
++	    ip->csi2->remote_streams != ip->csi2->stream_count)
++		return -EINVAL;
++	esd = media_entity_to_v4l2_subdev(ip->external->entity);
++	ret = ipu_isys_csi2_error(ip->csi2);
++	if (ret)
++		return ret;
++	dev_info(dev, "IRQUEUED external sensor start after all buffer submissions\n");
++	ret = v4l2_subdev_call(esd, video, s_stream, 1);
++	if (!ret) {
++		ret = ipu_isys_csi2_error(ip->csi2);
++		if (!ret && ipu_isys_csi2_get_fatal_errors(ip->csi2))
++			ret = -EIO;
++	}
++	ipu_isys_log_csi2_state(dev, ip, "post queued ext s_stream state");
++	dev_info(dev, "IRQUEUED external sensor start result=%d\n", ret);
++	return ret;
++}
++
+ int ipu_isys_video_set_streaming(struct ipu_isys_video *av,
+ 				 unsigned int state,
+ 				 struct ipu_isys_buffer_list *bl)
+@@ -2264,6 +2375,9 @@
+ 	bool external_sensor_start_attempted = false;
+ 	bool close_stream = true;
+ 	u32 fatal_receiver_errors;
++	int early_handle = -1;
++	int early_stop = -ENODATA, early_close = -ENODATA;
++	int early_sensor = -ENODATA, early_internal = 0, early_release = -ENODATA;
+ 	int cleanup_rval = 0;
+ 	int rval = 0;
+ 
+@@ -2276,6 +2390,8 @@
+ 	esd = media_entity_to_v4l2_subdev(ip->external->entity);
+ 
+ 	if (state) {
++		if (ip->ir_sensor_prepared)
++			return -EBUSY;
+ 		rval = media_graph_walk_init(&ip->graph, mdev);
+ 		if (rval)
+ 			return rval;
+@@ -2298,12 +2414,27 @@
+ 			cleanup_rval = rval;
+ 	}
+ 
++	if (state && ip->csi2 && ip->nr_queues == 1 &&
++	    ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 &&
++	    str_has_prefix(esd->name, "ov7251 ")) {
++		rval = v4l2_subdev_call(esd, video, pre_streamon, 0);
++		if (rval) {
++			media_entity_enum_cleanup(&entities);
++			goto out_media_entity_graph_init;
++		}
++		ip->ir_sensor_prepared = true;
++		dev_info(dev, "IRPREP sensor ready before receiver activation\n");
++	}
++
+ 	mutex_lock(&mdev->graph_mutex);
+ 
+ 	media_graph_walk_start(&ip->graph,
+ 				      &av->vdev.entity);
+ 
+ 	while ((entity = media_graph_walk_next(&ip->graph))) {
++		if (ipu_isys_be_soc_capture(av) &&
++		    !media_entity_enum_test(&ip->entity_enum, entity))
++			continue;
+ 		sd = media_entity_to_v4l2_subdev(entity);
+ 
+ 		dev_dbg(dev, "set stream: entity %s\n", entity->name);
+@@ -2353,6 +2484,17 @@
+ 
+ 		dev_dbg(dev, "set stream: source %d, stream_handle %d\n",
+ 			ip->source, ip->stream_handle);
++
++		/* IR remains in verified standby until queue.c submitted all buffers. */
++		if (ipu_isys_ir_defer_sensor(ip)) {
++			if (!ip->ir_sensor_prepared ||
++			    ip->csi2->remote_streams != ip->csi2->stream_count) {
++				rval = -EINVAL;
++				goto out_media_entity_stop_streaming_firmware;
++			}
++			dev_info(dev, "IRQUEUED sensor start deferred until buffers queued\n");
++			goto external_start_complete;
++		}
+ 
+ 		/* Start external sub-device now. */
+ 		dev_dbg(dev, "set stream: s_stream %s (ext)\n",
+@@ -2405,6 +2547,8 @@
+ 		if (rval)
+ 			goto out_media_entity_stop_streaming_firmware;
+ 
++external_start_complete:
++		;
+ 	} else {
+ 		if (close_stream) {
+ 			rval = close_streaming_firmware(av);
+@@ -2419,13 +2563,25 @@
+ 		media_entity_enum_cleanup(&entities);
+ 	else
+ 		media_graph_walk_cleanup(&ip->graph);
++	if (!state && ip->ir_sensor_prepared) {
++		rval = v4l2_subdev_call(esd, video, post_streamoff);
++		if (!rval)
++			ip->ir_sensor_prepared = false;
++		else if (!cleanup_rval)
++			cleanup_rval = rval;
++	}
+ 	av->streaming = state;
++	if (!state && ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6)
++		dev_info(dev, "IRUNWIND version=1 result=%d prepared=%u\n",
++			 cleanup_rval, ip->ir_sensor_prepared);
+ 
+ 	return state ? 0 : cleanup_rval;
+ 
+ out_media_entity_stop_streaming_firmware:
+-	if (stop_streaming_firmware(av) == IPU_ISYS_STOP_STREAMING_SUCCESS)
+-		close_streaming_firmware(av);
++	early_handle = ip->stream_handle;
++	early_stop = stop_streaming_firmware(av);
++	if (early_stop == IPU_ISYS_STOP_STREAMING_SUCCESS)
++		early_close = close_streaming_firmware(av);
+ 	else
+ 		release_streaming_firmware(av);
+ 
+@@ -2436,7 +2592,7 @@
+ 	 * must observe the pre-unwind count.
+ 	 */
+ 	if (state && external_sensor_start_attempted) {
+-		stop_external_sensor(dev, ip, esd);
++		early_sensor = stop_external_sensor(dev, ip, esd);
+ 		external_sensor_start_attempted = false;
+ 	}
+ 
+@@ -2451,7 +2607,9 @@
+ 		if (!media_entity_enum_test(&entities, entity2))
+ 			continue;
+ 
+-		ipu_isys_video_subdev_stream(av, sd, ip, 0);
++		int stop = ipu_isys_video_subdev_stream(av, sd, ip, 0);
++		if (stop && !early_internal)
++			early_internal = stop;
+ 	}
+ 
+ 	mutex_unlock(&mdev->graph_mutex);
+@@ -2459,7 +2617,21 @@
+ 	media_entity_enum_cleanup(&entities);
+ 
+ out_media_entity_graph_init:
++	if (ip->ir_sensor_prepared) {
++		int release = v4l2_subdev_call(esd, video, post_streamoff);
++		early_release = release;
++		if (!release)
++			ip->ir_sensor_prepared = false;
++		else
++			dev_err(dev, "IRPREP power release failed: %d\n", release);
++	}
+ 	media_graph_walk_cleanup(&ip->graph);
++	if (early_handle >= 0 && ip->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6)
++		dev_info(dev,
++			 "IREARLY version=1 handle=%d errno=%d stop=%d close=%d sensor=%d internal=%d release=%d final_handle=%d prepared=%u\n",
++			 early_handle, rval, early_stop, early_close, early_sensor,
++			 early_internal, early_release, ip->stream_handle,
++			 ip->ir_sensor_prepared);
+ 
+ 	return rval;
+ }
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.h
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.h
+@@ -70,6 +70,8 @@
+ 	atomic_t sequence;
+ 	/* frames actually delivered by fw (PIN_DATA_READY responses) */
+ 	atomic_t frames_done;
++	/* Last PIN_DATA_READY error, independent of SOF/EOF/command replies. */
++	atomic_t last_pin_error;
+ 	/*
+ 	 * Stream-start verification in progress: STR2MMIO-errored
+ 	 * buffers are parked back on the incoming queue for re-feeding
+@@ -96,6 +98,7 @@
+ 	int nr_queues;
+ 	int nr_streaming;	/* Number of capture queues streaming */
+ 	int streaming;	/* Has streaming been really started? */
++	bool ir_sensor_prepared; /* Paired pre_streamon/post_streamoff ownership. */
+ 	struct list_head queues;
+ 	struct completion stream_open_completion;
+ 	struct completion stream_close_completion;
+@@ -219,6 +222,7 @@
+ 	struct ipu_fw_isys_stream_cfg_data_abi *cfg);
+ int ipu_isys_video_prepare_streaming(struct ipu_isys_video *av,
+ 				     unsigned int state);
++int ipu_isys_video_start_queued_sensor(struct ipu_isys_video *av);
+ int ipu_isys_video_set_streaming(struct ipu_isys_video *av, unsigned int state,
+ 				 struct ipu_isys_buffer_list *bl);
+ int ipu_isys_video_init(struct ipu_isys_video *av, struct media_entity *source,
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys.c
+@@ -28,6 +28,8 @@
+ #include "ipu-isys-csi2.h"
+ #include "ipu-isys-tpg.h"
+ #include "ipu-isys-video.h"
++#include "ipu-platform.h"
++#include "ipu-isys-front-rgb-policy.h"
+ #include "ipu-platform-regs.h"
+ #include "ipu-buttress.h"
+ #include "ipu-platform.h"
+@@ -1252,6 +1254,28 @@
+ 			resp->stream_handle);
+ 		goto leave;
+ 	}
++	if (pipe->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 &&
++	    (resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_OPEN_DONE ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_START_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_START_AND_CAPTURE_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_STOP_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_FLUSH_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_CLOSE_ACK))
++		dev_info(&adev->dev,
++			 "IRLIFE firmware-ack type=%u handle=%u error=%u details=%u\n",
++			 resp->type, resp->stream_handle,
++			 resp->error_info.error, resp->error_info.error_details);
++	if ((resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_OPEN_DONE ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_START_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_START_AND_CAPTURE_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_STOP_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_FLUSH_ACK ||
++	     resp->type == IPU_FW_ISYS_RESP_TYPE_STREAM_CLOSE_ACK) &&
++	    ipu_isys_front_rgb_start_route(pipe))
++		dev_info(&adev->dev,
++			 "RGBLIFE firmware-ack type=%u handle=%u error=%u details=%u\n",
++			 resp->type, resp->stream_handle,
++			 resp->error_info.error, resp->error_info.error_details);
+ 	pipe->error = resp->error_info.error;
+ 	if (pipe->source == IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6 &&
+ 	    (resp->type == IPU_FW_ISYS_RESP_TYPE_FRAME_SOF ||
+@@ -1287,6 +1311,7 @@
+ 		complete(&pipe->stream_stop_completion);
+ 		break;
+ 	case IPU_FW_ISYS_RESP_TYPE_PIN_DATA_READY:
++		atomic_set(&pipe->last_pin_error, !!resp->error_info.error);
+ 		/*
+ 		 * On a failed D-PHY lock the fw still delivers PIN_DATA_READY
+ 		 * for every (corrupt) frame, but with
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu-isys.h
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu-isys.h
+@@ -101,6 +101,8 @@
+  * @pkg_dir_size: size of pkg_dir in bytes
+  * @short_packet_source: select short packet capture mode
+  */
++#include "ipu-isys-pipeline-context.h"
++
+ struct ipu_isys {
+ 	struct media_device media_dev;
+ 	struct v4l2_device v4l2_dev;
+@@ -157,6 +159,8 @@
+ 	struct list_head framebuflist;
+ 	struct list_head framebuflist_fw;
+ 	struct v4l2_async_notifier notifier;
++	/* Synchronous link-validation context, protected by graph_mutex. */
++	struct media_pipeline *validating_pipeline;
+ };
+ 
+ struct isys_fw_msgs {
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys.c
+@@ -34,7 +34,7 @@
+ 	{
+ 		.matches = {
+ 			DMI_MATCH(DMI_SYS_VENDOR, "Microsoft Corporation"),
+-			DMI_MATCH(DMI_PRODUCT_NAME, "Surface Pro 7"),
++			DMI_EXACT_MATCH(DMI_PRODUCT_NAME, "Surface Pro 7"),
+ 		},
+ 		.driver_data = (void *)&ipu4p_sp7_quirks,
+ 	},
+--- a/drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-isys-csi2.c
++++ b/drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-isys-csi2.c
+@@ -12,6 +12,12 @@
+ #include "ipu-trace.h"
+ #include "ipu-isys-csi2.h"
+ 
++/* Keep receiver timing selectable for controlled cold-boot comparisons. */
++static bool sp7_front_timing_quirk = true;
++module_param(sp7_front_timing_quirk, bool, 0444);
++MODULE_PARM_DESC(sp7_front_timing_quirk,
++                "Use SP7 front receiver timing; false selects generic timing");
++
+ #define CSI2_UPDATE_TIME_TRY_NUM   3
+ #define CSI2_UPDATE_TIME_MAX_DIFF  20
+ 
+@@ -33,7 +39,7 @@
+ 	unsigned int i;
+ 
+ 	quirks = ipu4p_isys_get_quirks(&csi2->isys->adev->dev);
+-	if (!quirks || csi2->index != quirks->front_csi_index ||
++	if (!sp7_front_timing_quirk || !quirks || csi2->index != quirks->front_csi_index ||
+ 	    csi2->asd.source != IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 +
+ 	    quirks->front_source || csi2->nlanes != quirks->front_lanes)
+ 		return false;
+@@ -62,6 +68,75 @@
+ 		mipi_timing->clock_first_data_ticks, mipi_timing->data_ticks);
+ 
+ 	return true;
++}
++
++/* Bounded source-6-only calibration. Root may select the next idle-start
++ * profile; values are sampled once before programming this receiver.
++ * No voltage, sensor clock, illumination, timeout or error mask is changed.
++ */
++static unsigned int sp7_ir_timing_profile = 1;
++module_param(sp7_ir_timing_profile, uint, 0644);
++MODULE_PARM_DESC(sp7_ir_timing_profile, "SP7 IR timing profile0..11; change only while idle");
++static const u32 sp7_ir_timings[][2] = {
++	{627,647}, {1254,1294}, {1400,880}, {1400,1000},
++	{1400,1200}, {1000,800}, {1000,1000}, {1000,1200},
++	{1800,800}, {1800,1000}, {1800,1200}, {1155,1269},
++};
++
++static int ipu4p_csi2_source6_timing(struct ipu_isys_csi2 *csi2,
++				   struct ipu_isys_csi2_timing *timing)
++{
++	__s64 frequency;
++	unsigned int profile = READ_ONCE(sp7_ir_timing_profile);
++	int ret;
++
++	if (!ipu4p_isys_get_quirks(&csi2->isys->adev->dev) ||
++	    csi2->index != 1 || csi2->nlanes != 1 ||
++	    csi2->asd.source != IPU_FW_ISYS_STREAM_SRC_CSI2_PORT0 + 6)
++		return 0;
++	if (profile >= ARRAY_SIZE(sp7_ir_timings))
++		return -EINVAL;
++	ret = ipu_isys_csi2_get_link_freq(csi2, &frequency);
++	if (ret)
++		return ret;
++	if (frequency != 240000000)
++		return -EINVAL;
++	timing->ctermen = 0;
++	timing->dtermen = 0;
++	timing->csettle = sp7_ir_timings[profile][0];
++	timing->dsettle = sp7_ir_timings[profile][1];
++	dev_info(&csi2->isys->adev->dev,
++		 "IRPROFILE id=%u link=%lld clock=%u data=%u slots=2\n",
++		 profile, frequency, timing->csettle, timing->dsettle);
++	return 1;
++}
++
++
++/* Windows ConfigMipiClk (RVA 0x4e290) selects the extended layout for
++ * ports 0, 1, 6 and 7. Port 6 has two timing slots, even for one lane.
++ * Caller has already checked SP7/source6/index1/one lane and link rate.
++ */
++static int ipu4p_csi2_write_source6_timing(struct ipu_isys_csi2 *csi2,
++                                         struct ipu_isys_csi2_timing timing)
++{
++	unsigned int i;
++
++	writel(timing.csettle, csi2->base + 0x34);
++	writel(timing.ctermen, csi2->base + 0x30);
++	for (i = 0; i < 2; i++) {
++		writel(timing.dsettle, csi2->base + 0x3c + i * 8);
++		writel(timing.dtermen, csi2->base + 0x38 + i * 8);
++	}
++	if (readl(csi2->base + 0x34) != timing.csettle ||
++	    readl(csi2->base + 0x30) != timing.ctermen)
++		return -EIO;
++	for (i = 0; i < 2; i++)
++		if (readl(csi2->base + 0x3c + i * 8) != timing.dsettle ||
++		    readl(csi2->base + 0x38 + i * 8) != timing.dtermen)
++			return -EIO;
++	dev_info(&csi2->isys->adev->dev,
++		 "IRLAYOUT source=6 clock=0x30/0x34 data=0x38/0x3c slots=2 verified=1\n");
++	return 0;
+ }
+ 
+ /*
+@@ -332,6 +407,7 @@
+ 	struct ipu_isys *isys = csi2->isys;
+ 	void __iomem *isys_base = isys->pdata->base;
+ 	unsigned int i;
++	int source6_timing;
+ 	u32 val, csi2part = 0;
+ 
+ 	dev_dbg(&csi2->isys->adev->dev, "csi2 s_stream %d\n", enable);
+@@ -363,23 +439,34 @@
+ 		return 0;
+ 	}
+ 
++	source6_timing = ipu4p_csi2_source6_timing(csi2, &timing);
++	if (source6_timing < 0)
++		return source6_timing;
++
+ 	ipu4p_csi2_ev_correction_params(csi2, nlanes);
+ 	ipu4p_csi2_log_source6_platform_state(csi2, "before timing");
+ 	ipu4p_csi2_init_source6_bb8(csi2);
+ 
+-	writel(timing.ctermen,
+-		   csi2->base + CSI2_REG_CSI_RX_DLY_CNT_TERMEN_CLANE);
+-	writel(timing.csettle,
+-		   csi2->base + CSI2_REG_CSI_RX_DLY_CNT_SETTLE_CLANE);
+-
+-	if (!ipu4p_csi2_apply_source7_mipi_timing(csi2)) {
+-		for (i = 0; i < nlanes; i++) {
+-			writel
+-			    (timing.dtermen,
+-			     csi2->base + CSI2_REG_CSI_RX_DLY_CNT_TERMEN_DLANE(i));
+-			writel
+-			    (timing.dsettle,
+-			     csi2->base + CSI2_REG_CSI_RX_DLY_CNT_SETTLE_DLANE(i));
++	if (source6_timing) {
++		int ret = ipu4p_csi2_write_source6_timing(csi2, timing);
++
++		if (ret)
++			return ret;
++	} else {
++		writel(timing.ctermen,
++			   csi2->base + CSI2_REG_CSI_RX_DLY_CNT_TERMEN_CLANE);
++		writel(timing.csettle,
++			   csi2->base + CSI2_REG_CSI_RX_DLY_CNT_SETTLE_CLANE);
++	
++		if (!ipu4p_csi2_apply_source7_mipi_timing(csi2)) {
++			for (i = 0; i < nlanes; i++) {
++				writel
++				    (timing.dtermen,
++				     csi2->base + CSI2_REG_CSI_RX_DLY_CNT_TERMEN_DLANE(i));
++				writel
++				    (timing.dsettle,
++				     csi2->base + CSI2_REG_CSI_RX_DLY_CNT_SETTLE_DLANE(i));
++			}
+ 		}
+ 	}
+ 

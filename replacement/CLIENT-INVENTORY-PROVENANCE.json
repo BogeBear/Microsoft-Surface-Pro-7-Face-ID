@@ -1,0 +1,25 @@
+{
+  "scope": "Independent project metadata reader, not an OV7251-derived sensor implementation",
+  "license": "GPL-3.0-only",
+  "source_public_candidate": "src/metadata/inspector.py and project process-lifetime tests",
+  "change_date": "2026-11-02",
+  "change": "Thread-local fd/mapping inventory exhaustion enters the existing whole-scan SnapshotChanged restart. All retries share the original four-second/500000-metadata budget; camera_seen remains sticky. Outer read limit remains three reads/eight seconds.",
+  "VM_reader_tests": 79,
+  "VM_helper_tests": 28,
+  "VM_presence_tests": 26,
+  "VM_role_claim_and_reuse_rejection": true,
+  "private_machine_bindings_replaced_with_examples": true,
+  "new_privilege_grant": false,
+  "automatic_camera_launch": false,
+  "physical_recheck": "The protected new reader/helper completed two new30RGB+30IR capture cycles with original passed results, complete teardown, exact restoration and external full8idle. Twenty passive normal-desktop full8idle observations also passed; no artificial load was generated.",
+  "hardware_code_changed": false,
+  "software_limits_preserved": {
+    "thread_local_attempts": 3,
+    "whole_scan_attempts": 2,
+    "whole_scan_seconds": 4,
+    "whole_scan_metadata": 500000,
+    "outer_reads": 3,
+    "outer_total_seconds": 8
+  },
+  "source_examples_inactive": true
+}

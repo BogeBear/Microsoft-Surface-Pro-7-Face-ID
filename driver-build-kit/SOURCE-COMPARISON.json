@@ -1,0 +1,3017 @@
+{
+  "scope": "Reviewed IPU4 export versus recorded dual-route-v3 runtime source tree",
+  "files": [
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/Kconfig",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/Makefile",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-bridge.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-bus.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-bus.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-buttress.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-buttress.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-cpd.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-cpd.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-dma.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-dma.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-fw-com.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-fw-com.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-fw-isys.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-fw-isys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-fw-psys.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-fw-psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2-be-soc.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2-be.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2-be.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-front-rgb-policy.h",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-media.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-pipeline-context.h",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.h",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-subdev.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-subdev.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-tpg.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-tpg.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.h",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys.h",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-mmu.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-mmu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-pdata.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-psys-compat32.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-psys.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-trace-event.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-trace.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-wrapper.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-wrapper.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu3/Kconfig",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu3/Makefile",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu3/ipu3-cio2.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu3/ipu3-cio2.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/Makefile",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu-platform-buttress-regs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu-platform-isys-csi2-reg.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu-platform-isys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu-platform-psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu-platform-regs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu-platform-resources.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu-platform.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/Makefile.ipu4isys_inc",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/Makefile.ipu4isys_src",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/Makefile.ipu4psys_inc",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/Makefile.ipu4psys_src",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/Makefile.isyslib",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/Makefile.psyslib",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/ia_css_fw_pkg_release.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/ipu-wrapper.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/buffer_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/buffer_type.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_buffer_address.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_input_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_input_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_output_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_output_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_return_token.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_shared_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/interface/ia_css_shared_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/src/cpu/buffer_access.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/src/cpu/ia_css_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/src/cpu/ia_css_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/src/cpu/ia_css_input_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/src/cpu/ia_css_output_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/buffer/src/cpu/ia_css_shared_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/cell/interface/ia_css_cell.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/cell/src/ia_css_cell_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/device_access/interface/ia_css_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/device_access/interface/ia_css_xmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/device_access/interface/ia_css_xmem_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/device_access/src/ia_css_cmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/device_access/src/ia_css_xmem_cmem_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/device_access/src/ia_css_xmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/interface/bxtB0/ipu_device_buttress_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/interface/ipu_device_cell_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/interface/ipu_device_cell_properties_func.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/interface/ipu_device_cell_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/interface/ipu_device_cell_type_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/isys/bxtB0/ipu_device_cell_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/isys/bxtB0/ipu_device_cell_properties_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/isys/bxtB0/ipu_device_cell_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/devices/src/ipu_device_sp2600_control_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/fw_abi_common_types/cpu/ia_css_terminal_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/fw_abi_common_types/cpu/ia_css_terminal_manifest_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/fw_abi_common_types/ia_css_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/fw_abi_common_types/ia_css_terminal_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/interface/ia_css_isys_fw_bridged_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/interface/ia_css_isysapi.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/interface/ia_css_isysapi_fw_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/interface/ia_css_isysapi_fw_version.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/interface/ia_css_isysapi_proxy_region_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/interface/ia_css_isysapi_proxy_region_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/interface/ia_css_isysapi_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/src/ia_css_isys_private.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/src/ia_css_isys_private.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/src/ia_css_isys_public.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/src/ia_css_isys_public_trace.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/src/ia_css_isys_public_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/isysapi/src/ia_css_isysapi_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/pkg_dir/interface/ia_css_pkg_dir.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/pkg_dir/interface/ia_css_pkg_dir_iunit.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/pkg_dir/interface/ia_css_pkg_dir_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/pkg_dir/interface/ia_css_pkg_dir_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/pkg_dir/src/ia_css_pkg_dir.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/pkg_dir/src/ia_css_pkg_dir_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/pkg_dir/src/ia_css_pkg_dir_int.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/interface/port_env_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/interface/queue.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/interface/queue_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/interface/recv_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/interface/recv_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/interface/send_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/interface/send_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/src/queue.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/src/recv_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/port/src/send_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/reg_dump/src/isys/bxtB0_gen_reg_dump/ia_css_debug_dump.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/reg_dump/src/isys/bxtB0_gen_reg_dump/ia_css_debug_dump.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/reg_dump/src/reg_dump_generic_bridge.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/regmem/interface/regmem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/regmem/src/regmem_access_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/regmem/src/regmem_const.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/assert_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/cpu_mem_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/error_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/math_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/misc_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/platform_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/print_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/support/type_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/syscom/interface/ia_css_syscom.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/syscom/interface/ia_css_syscom_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/syscom/interface/ia_css_syscom_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/syscom/src/ia_css_syscom.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/syscom/src/ia_css_syscom_config_fw.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/syscom/src/ia_css_syscom_context.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/trace/interface/ia_css_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/utils/system_defs/system_const.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/shared_memory_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/shared_memory_map.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/vied_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/vied_memory_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/vied_subsystem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/vied_subsystem_access_initialization.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/vied_subsystem_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600/vied/vied/vied_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/Makefile",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/DSS_V2_program_group/ia_css_fw_pkg_release.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/buffer_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/buffer_type.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/ia_css_buffer_address.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/ia_css_input_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/ia_css_input_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/ia_css_output_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/ia_css_output_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/ia_css_shared_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/interface/ia_css_shared_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/src/cpu/buffer_access.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/src/cpu/ia_css_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/src/cpu/ia_css_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/src/cpu/ia_css_input_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/src/cpu/ia_css_output_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/buffer/src/cpu/ia_css_shared_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/cell/interface/ia_css_cell.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/cell/src/ia_css_cell_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/client_pkg/interface/ia_css_client_pkg.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/client_pkg/interface/ia_css_client_pkg_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/client_pkg/interface/ia_css_client_pkg_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/client_pkg/src/ia_css_client_pkg.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/client_pkg/src/ia_css_client_pkg_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/cpd/cpd_component/interface/ia_css_cpd_component_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/cpd/cpd_metadata/interface/ia_css_cpd_metadata_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/device_access/interface/ia_css_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/device_access/interface/ia_css_xmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/device_access/interface/ia_css_xmem_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/device_access/src/ia_css_cmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/device_access/src/ia_css_xmem_cmem_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/device_access/src/ia_css_xmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/interface/bxtB0/ipu_device_buttress_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/interface/ipu_device_cell_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/interface/ipu_device_cell_properties_func.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/interface/ipu_device_cell_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/interface/ipu_device_cell_type_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/interface/ipu_device_gp_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/interface/ipu_device_gp_properties_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/psys/bxtB0/ipu_device_acb_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/psys/bxtB0/ipu_device_cell_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/psys/bxtB0/ipu_device_cell_properties_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/psys/bxtB0/ipu_device_cell_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/psys/bxtB0/ipu_device_ff_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/psys/bxtB0/ipu_device_gp_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/src/ipu_device_isp2600_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/src/ipu_device_sp2600_control_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/src/ipu_device_sp2600_fp_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/devices/src/ipu_device_sp2600_proxy_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/fw_abi_common_types/cpu/ia_css_terminal_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/fw_abi_common_types/cpu/ia_css_terminal_manifest_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/fw_abi_common_types/ia_css_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/fw_abi_common_types/ia_css_terminal_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir_iunit.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/pkg_dir/src/ia_css_pkg_dir.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/pkg_dir/src/ia_css_pkg_dir_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/pkg_dir/src/ia_css_pkg_dir_int.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/interface/port_env_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/interface/queue.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/interface/queue_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/interface/recv_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/interface/recv_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/interface/send_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/interface/send_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/src/queue.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/src/recv_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/port/src/send_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psys_private_pg/interface/ia_css_psys_private_pg_data.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psys_server/interface/ia_css_bxt_spctrl_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psys_server/src/bxt_spctrl_process_group_cmd_impl.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/data/interface/ia_css_program_group_data.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/data/interface/ia_css_program_group_data_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/data/interface/ia_css_psys_data_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/data/interface/ia_css_psys_data_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/data/src/ia_css_program_group_data.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/data/src/ia_css_program_group_data_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/device/interface/bxtB0/ia_css_psys_transport_dep.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_device.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_device_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_init.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_transport.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/device/src/ia_css_psys_device.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_buffer_set.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_dynamic_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_dynamic_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.hsys.kernel.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.hsys.kernel.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group_cmd_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_terminal.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_terminal.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_buffer_set.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_buffer_set_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_group.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_group_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_private_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_terminal.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_terminal_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_terminal_private_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/interface/ia_css_psysapi.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/interface/ia_css_psysapi_fw_version.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/interface/ia_css_psysapi_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/kernel/interface/ia_css_kernel_bitmap.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/kernel/interface/ia_css_psys_kernel_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/kernel/src/ia_css_kernel_bitmap.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/param/interface/ia_css_program_group_param.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/param/interface/ia_css_program_group_param.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/param/interface/ia_css_program_group_param_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/param/interface/ia_css_psys_param_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/param/src/ia_css_program_group_param.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/param/src/ia_css_program_group_param_private.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/psys_server_manifest/bxtB0/ia_css_psys_server_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/psys_server_manifest/bxtB0/ia_css_psys_server_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/resource_model/bxtB0/vied_nci_psys_resource_model.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/resource_model/bxtB0/vied_nci_psys_resource_model.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/sim/interface/ia_css_psys_sim_data.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/sim/interface/ia_css_psys_sim_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/sim/interface/ia_css_psys_sim_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/sim/interface/vied_nci_psys_system_global.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/sim/src/ia_css_psys_sim_data.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/sim/src/psys_system_global_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/sim/src/vied_nci_psys_system.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_manifest_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_group_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_group_manifest.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_group_manifest.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.hsys.kernel.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_static_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_static_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_terminal_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_terminal_manifest.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_terminal_manifest.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_group_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_group_manifest_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_group_private.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_terminal_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/reg_dump/src/psys/bxtB0_gen_reg_dump/ia_css_debug_dump.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/reg_dump/src/psys/bxtB0_gen_reg_dump/ia_css_debug_dump.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/reg_dump/src/reg_dump_generic_bridge.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/regmem/interface/regmem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/regmem/src/regmem_access_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/regmem/src/regmem_const.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_manifest_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm_manifest_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/assert_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/cpu_mem_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/error_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/math_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/misc_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/platform_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/print_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/support/type_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/syscom/interface/ia_css_syscom.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/syscom/interface/ia_css_syscom_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/syscom/interface/ia_css_syscom_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/syscom/src/ia_css_syscom.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/syscom/src/ia_css_syscom_config_fw.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/syscom/src/ia_css_syscom_context.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/trace/interface/ia_css_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/shared_memory_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/shared_memory_map.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/vied_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/vied_memory_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/vied_subsystem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/vied_subsystem_access_initialization.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/vied_subsystem_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied/vied/vied_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_nci_acb/interface/vied_nci_acb_route_type.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/interface/ia_css_param_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal_manifest_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal_manifest_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/libcsspsys2600.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/lib2600psys/libcsspsys2600.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-css/libintel-ipu4.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-fw-resources.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys-csi2.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys-isa.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys-isa.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-psys.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-resources.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/Makefile.ipu4pisys_inc",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/Makefile.ipu4pisys_src",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/Makefile.ipu4ppsys_inc",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/Makefile.ipu4ppsys_src",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/Makefile.isyslib",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/Makefile.psyslib",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/ia_css_fw_pkg_release.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/ipu-wrapper.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/buffer_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/buffer_type.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_buffer_address.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_input_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_input_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_output_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_output_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_return_token.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_shared_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/interface/ia_css_shared_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/src/cpu/buffer_access.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/src/cpu/ia_css_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/src/cpu/ia_css_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/src/cpu/ia_css_input_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/src/cpu/ia_css_output_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/buffer/src/cpu/ia_css_shared_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/cell/interface/ia_css_cell.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/cell/src/ia_css_cell_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/cpd_binary/ia_css_fw_pkg_release.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/device_access/interface/ia_css_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/device_access/interface/ia_css_xmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/device_access/interface/ia_css_xmem_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/device_access/src/ia_css_cmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/device_access/src/ia_css_xmem_cmem_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/device_access/src/ia_css_xmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/interface/cnlB0/ipu_device_buttress_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/interface/ipu_device_cell_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/interface/ipu_device_cell_properties_func.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/interface/ipu_device_cell_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/interface/ipu_device_cell_type_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/isys/cnlB0/ipu_device_cell_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/isys/cnlB0/ipu_device_cell_properties_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/isys/cnlB0/ipu_device_cell_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/devices/src/ipu_device_sp2600_control_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/fw_abi_common_types/cpu/ia_css_terminal_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/fw_abi_common_types/cpu/ia_css_terminal_manifest_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/fw_abi_common_types/ia_css_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/fw_abi_common_types/ia_css_terminal_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/interface/ia_css_isys_fw_bridged_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/interface/ia_css_isysapi.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/interface/ia_css_isysapi_fw_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/interface/ia_css_isysapi_fw_version.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/interface/ia_css_isysapi_proxy_region_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/interface/ia_css_isysapi_proxy_region_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/interface/ia_css_isysapi_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/src/ia_css_isys_private.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/src/ia_css_isys_private.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/src/ia_css_isys_public.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/src/ia_css_isys_public_trace.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/src/ia_css_isys_public_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/isysapi/src/ia_css_isysapi_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/pkg_dir/interface/ia_css_pkg_dir.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/pkg_dir/interface/ia_css_pkg_dir_iunit.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/pkg_dir/interface/ia_css_pkg_dir_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/pkg_dir/interface/ia_css_pkg_dir_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/pkg_dir/src/ia_css_pkg_dir.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/pkg_dir/src/ia_css_pkg_dir_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/pkg_dir/src/ia_css_pkg_dir_int.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/interface/port_env_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/interface/queue.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/interface/queue_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/interface/recv_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/interface/recv_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/interface/send_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/interface/send_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/src/queue.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/src/recv_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/port/src/send_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/reg_dump/src/isys/cnlB0_gen_reg_dump/ia_css_debug_dump.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/reg_dump/src/isys/cnlB0_gen_reg_dump/ia_css_debug_dump.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/reg_dump/src/reg_dump_generic_bridge.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/regmem/interface/regmem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/regmem/src/regmem_access_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/regmem/src/regmem_const.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/assert_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/cpu_mem_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/error_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/math_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/misc_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/platform_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/print_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/support/type_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/syscom/interface/ia_css_syscom.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/syscom/interface/ia_css_syscom_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/syscom/interface/ia_css_syscom_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/syscom/src/ia_css_syscom.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/syscom/src/ia_css_syscom_config_fw.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/syscom/src/ia_css_syscom_context.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/trace/interface/ia_css_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/utils/system_defs/system_const.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/shared_memory_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/shared_memory_map.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/vied_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/vied_memory_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/vied_subsystem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/vied_subsystem_access_initialization.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/vied_subsystem_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600/vied/vied/vied_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/Makefile",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/CNL_program_group/ia_css_fw_pkg_release.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/ICL_program_group/ia_css_fw_pkg_release.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/buffer_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/buffer_type.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/ia_css_buffer_address.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/ia_css_input_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/ia_css_input_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/ia_css_output_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/ia_css_output_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/ia_css_shared_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/interface/ia_css_shared_buffer_cpu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/src/cpu/buffer_access.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/src/cpu/ia_css_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/src/cpu/ia_css_buffer.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/src/cpu/ia_css_input_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/src/cpu/ia_css_output_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/buffer/src/cpu/ia_css_shared_buffer.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell/interface/ia_css_cell.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell/src/ia_css_cell_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/interface/ia_css_cell_program_group_load.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/interface/ia_css_cell_program_load.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/interface/ia_css_cell_program_load_prog.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/interface/ia_css_cell_program_load_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/interface/ia_css_cell_program_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/src/ia_css_cell_program_group_load_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/src/ia_css_cell_program_load.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/src/ia_css_cell_program_load_bin.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/src/ia_css_cell_program_load_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/src/ia_css_cell_program_load_prog_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cell_program_load/src/ia_css_cell_regs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/client_pkg/interface/ia_css_client_pkg.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/client_pkg/interface/ia_css_client_pkg_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/client_pkg/interface/ia_css_client_pkg_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/client_pkg/src/ia_css_client_pkg.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/client_pkg/src/ia_css_client_pkg_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cpd/cpd_component/interface/ia_css_cpd_component_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/cpd/cpd_metadata/interface/ia_css_cpd_metadata_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/device_access/interface/ia_css_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/device_access/interface/ia_css_xmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/device_access/interface/ia_css_xmem_cmem.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/device_access/src/ia_css_cmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/device_access/src/ia_css_xmem_cmem_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/device_access/src/ia_css_xmem_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/interface/cnlB0/ipu_device_buttress_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/interface/ipu_device_cell_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/interface/ipu_device_cell_properties_func.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/interface/ipu_device_cell_properties_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/interface/ipu_device_cell_type_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/interface/ipu_device_gp_properties.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/interface/ipu_device_gp_properties_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/psys/cnlB0/ipu_device_acb_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/psys/cnlB0/ipu_device_cell_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/psys/cnlB0/ipu_device_cell_properties_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/psys/cnlB0/ipu_device_cell_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/psys/cnlB0/ipu_device_ff_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/psys/cnlB0/ipu_device_gp_devices.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/src/ipu_device_isp2600_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/src/ipu_device_sp2600_control_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/src/ipu_device_sp2600_fp_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/devices/src/ipu_device_sp2600_proxy_properties_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_abi_common_types/cpu/ia_css_terminal_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_abi_common_types/cpu/ia_css_terminal_manifest_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_abi_common_types/ia_css_base_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_abi_common_types/ia_css_terminal_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/interface/ia_css_fw_load.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/interface/ia_css_fw_load_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/src/xmem/ia_css_fw_load.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/src/xmem/ia_css_fw_load_blocking_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/src/xmem/ia_css_fw_load_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/src/xmem/ia_css_fw_load_non_blocking_host_state.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/src/xmem/ia_css_fw_load_non_blocking_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/fw_load/src/xmem/ia_css_fw_load_non_blocking_impl_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir_iunit.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/pkg_dir/interface/ia_css_pkg_dir_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/pkg_dir/src/ia_css_pkg_dir.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/pkg_dir/src/ia_css_pkg_dir_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/pkg_dir/src/ia_css_pkg_dir_int.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/interface/port_env_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/interface/queue.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/interface/queue_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/interface/recv_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/interface/recv_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/interface/send_port.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/interface/send_port_struct.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/src/queue.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/src/recv_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/port/src/send_port.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psys_infobits/interface/psys_infobits.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psys_infobits/src/psys_infobits.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psys_private_pg/interface/ia_css_psys_private_pg_data.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psys_server/interface/ia_css_bxt_spctrl_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psys_server/src/bxt_spctrl_process_group_cmd_impl.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/data/interface/ia_css_program_group_data.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/data/interface/ia_css_program_group_data_defs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/data/interface/ia_css_psys_data_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/data/interface/ia_css_psys_data_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/data/src/ia_css_program_group_data.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/data/src/ia_css_program_group_data_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/device/interface/cnlB0/ia_css_psys_transport_dep.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_device.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_device_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_init.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/device/interface/ia_css_psys_transport.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/device/src/ia_css_psys_device.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_buffer_set.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_dynamic_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_dynamic_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.hsys.kernel.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process.psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.hsys.kernel.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group.psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_group_cmd_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_process_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_terminal.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/interface/ia_css_psys_terminal.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_buffer_set.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_buffer_set_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_group.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_group_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_process_private_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_terminal.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_terminal_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/dynamic/src/ia_css_psys_terminal_private_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/interface/ia_css_psysapi.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/interface/ia_css_psysapi_fw_version.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/interface/ia_css_psysapi_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/kernel/interface/ia_css_kernel_bitmap.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/kernel/interface/ia_css_psys_kernel_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/kernel/src/ia_css_kernel_bitmap.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/param/interface/ia_css_program_group_param.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/param/interface/ia_css_program_group_param.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/param/interface/ia_css_program_group_param_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/param/interface/ia_css_psys_param_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/param/src/ia_css_program_group_param.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/param/src/ia_css_program_group_param_private.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/psys_server_manifest/cnlB0/ia_css_psys_server_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/psys_server_manifest/cnlB0/ia_css_psys_server_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/resource_model/cnlB0/vied_nci_psys_resource_model.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/resource_model/cnlB0/vied_nci_psys_resource_model.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/sim/interface/ia_css_psys_sim_data.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/sim/interface/ia_css_psys_sim_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/sim/interface/ia_css_psys_sim_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/sim/interface/vied_nci_psys_system_global.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/sim/src/ia_css_psys_sim_data.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/sim/src/psys_system_global_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/sim/src/vied_nci_psys_system.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_manifest_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_group_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_group_manifest.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_group_manifest.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.hsys.kernel.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_program_manifest.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_static_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_static_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_terminal_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_terminal_manifest.hsys.user.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/interface/ia_css_psys_terminal_manifest.sim.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_group_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_group_manifest_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_group_private.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_program_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/psysapi/static/src/ia_css_psys_terminal_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/reg_dump/src/psys/cnlB0_gen_reg_dump/ia_css_debug_dump.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/reg_dump/src/psys/cnlB0_gen_reg_dump/ia_css_debug_dump.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/reg_dump/src/reg_dump_generic_bridge.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/regmem/interface/regmem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/regmem/src/regmem_access_host.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/regmem/src/regmem_const.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_manifest_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/interface/ia_css_rbm_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/routing_bitmap/src/ia_css_rbm_manifest_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/assert_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/cpu_mem_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/error_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/math_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/misc_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/platform_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/print_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/support/type_support.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/syscom/interface/ia_css_syscom.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/syscom/interface/ia_css_syscom_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/syscom/interface/ia_css_syscom_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/syscom/src/ia_css_syscom.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/syscom/src/ia_css_syscom_config_fw.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/syscom/src/ia_css_syscom_context.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/trace/interface/ia_css_trace.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/shared_memory_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/shared_memory_map.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/vied_config.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/vied_memory_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/vied_subsystem_access.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/vied_subsystem_access_initialization.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/vied_subsystem_access_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied/vied/vied_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_nci_acb/interface/vied_nci_acb_route_type.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/interface/ia_css_param_storage_class.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal_manifest.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal_manifest_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/interface/ia_css_terminal_types.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal_manifest.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/lib/vied_parameters/src/ia_css_terminal_manifest_impl.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/libcsspsys2600.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/lib2600psys/libcsspsys2600.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-css/libintel-ipu4p.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-isys-csi2.c",
+      "status": "added_modification_notice_and_blank_lines_only"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/Kconfig",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/Makefile",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-bus.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-bus.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-buttress.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-buttress.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-cpd.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-cpd.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-dma.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-dma.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-fw-com.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-fw-com.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-fw-isys.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-fw-isys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-csi2.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-csi2.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-dwc-phy.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-jsl-phy.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-mcd-phy.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-queue.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-queue.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-subdev.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-subdev.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-video.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys-video.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-isys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-mmu.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-mmu.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-platform-buttress-regs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-platform-isys-csi2-reg.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6-platform-regs.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu6/ipu6.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ivsc/Kconfig",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ivsc/Makefile",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ivsc/mei_ace.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ivsc/mei_csi.c",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/include/media/ipu-isys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/include/uapi/linux/ipu-isys-isa-fw.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/include/uapi/linux/ipu-isys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/include/uapi/linux/ipu-psys.h",
+      "status": "byte_identical"
+    },
+    {
+      "path": "drivers/ipu4/include/uapi/linux/ipu4-v4l2.h",
+      "status": "byte_identical"
+    }
+  ]
+}

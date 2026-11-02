@@ -1,0 +1,61 @@
+{
+  "kernel": "7.2.11-arch1-1-surface",
+  "fresh_built_modules": [
+    {
+      "module": "intel_skl_int3472_discrete.ko",
+      "sha256": "f77399c16bd9a98be4f6103bacafe5fc56d20d47ed6fffaf23d4b130e6975b45",
+      "srcversion": "CC0256F7CB08C76F34C6C77",
+      "vermagic": "7.2.11-arch1-1-surface SMP preempt mod_unload"
+    },
+    {
+      "module": "ov7251.ko",
+      "sha256": "a62deec975241c047a7f7d57dcd143ff165e03ace382f6defd91c6176e751220",
+      "srcversion": "8D753AE3225E72F178775DA",
+      "vermagic": "7.2.11-arch1-1-surface SMP preempt mod_unload"
+    },
+    {
+      "module": "intel-ipu4p.ko",
+      "sha256": "838dce3480aac4498d83e60f91436c251ec435ba4a8754d641cecd0b61c131ab",
+      "srcversion": "C21E41A23F47F0FF8A9F51A",
+      "vermagic": "7.2.11-arch1-1-surface SMP preempt mod_unload"
+    },
+    {
+      "module": "intel-ipu4p-isys.ko",
+      "sha256": "2a293ded66e6e1083a61095b496041098523681e0a028e1103d03de194206cd5",
+      "srcversion": "76A931ED621E0C81858E0AD",
+      "vermagic": "7.2.11-arch1-1-surface SMP preempt mod_unload"
+    },
+    {
+      "module": "intel-ipu4p-psys.ko",
+      "sha256": "c3503e8fab21012dc5a4613588056f828a448b34e57af0d3a3a476132955edc1",
+      "srcversion": "C438A4D7E22E34DC48AD819",
+      "vermagic": "7.2.11-arch1-1-surface SMP preempt mod_unload"
+    },
+    {
+      "module": "intel-ipu4p-isys-csslib.ko",
+      "sha256": "238f0d0d72e4dffb8e077e4bf8484b8776b50d08aa7f9749d96650e11f3bdcf8",
+      "srcversion": "376BA3196B4D8EC9F91DC09",
+      "vermagic": "7.2.11-arch1-1-surface SMP preempt mod_unload"
+    },
+    {
+      "module": "intel-ipu4p-psys-csslib.ko",
+      "sha256": "04e37ad41eb48e5ccbd6cc023deae217de00bf1ad1179e998cf6591999d8fc65",
+      "srcversion": "0DBFA22990359BD68A9EEBC",
+      "vermagic": "7.2.11-arch1-1-surface SMP preempt mod_unload"
+    }
+  ],
+  "recorded_physical_runtime_srcversions": {
+    "intel_ipu4p": "A9222BA5F7891A94A1A8CA9",
+    "intel_ipu4p_isys": "1BF7B8F651A24B1EDF74615",
+    "intel_ipu4p_psys": "FC4919132BAC2E818EBB192",
+    "intel_ipu4p_isys_csslib": "11231557F71AF9D8E2A6835",
+    "intel_ipu4p_psys_csslib": "0DBFA22990359BD68A9EEBC",
+    "intel_skl_int3472_discrete": "CC0256F7CB08C76F34C6C77",
+    "ov7251": "8D753AE3225E72F178775DA"
+  },
+  "compiled": true,
+  "fresh_modules_loaded": false,
+  "fresh_binaries_claimed_byte_identical_to_runtime": false,
+  "reason": "Approved modification notices and build context can change source/binary identities. Version-bound controllers must not silently accept a fresh build as the recorded runtime.",
+  "hardware_revalidation_required_for_fresh_build": true
+}
