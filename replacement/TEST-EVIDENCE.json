@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-02",
+  "kernel": "7.2.11-arch1-1-surface",
+  "C_gate_assertions": 4209,
+  "C_session_bridge_assertions": 674,
+  "Python_user_model_status_tests": 14,
+  "Python_root_staging_tests": 10,
+  "Python_root_private_RAM_cleanup_tests": 6,
+  "book_worker_and_contract_VM_tests": 54,
+  "actual_raw_metadata_kernel_closure_VM_tests": 4,
+  "VMs_off": true,
+  "VM_NIC": false,
+  "VM_host_mounts": false,
+  "VM_physical_passthrough": false,
+  "physical_software_revision": "8D753AE3225E72F178775DA",
+  "secure_biometric_or_PAD_verified": false,
+  "limits": [
+    "VMs do not probe a physical sensor",
+    "Raw guest Python count field was stale; serial log independently confirms10root tests",
+    "Synthetic zero-image model test does not prove face matching",
+    "Current public source is not an install/upgrade/rollback release"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "baseline": {
+    "url": "https://github.com/linux-surface/kernel/blob/57d61aff0b53b089227f5a794363fec829114fc5/drivers/media/i2c/ov7251.c",
+    "sha256": "3588a52e0a3a4dfe23dd3425db95388d93af17c6f8eebe5b004ee8d1eea5aee9",
+    "license": "GPL-2.0",
+    "notices_retained": true
+  },
+  "replacement": "New SP7 lifecycle core and new kernel bridge; inherited uncertain four patches are not build inputs. Prior exposure to old implementation disclosed; not an untouched clean-room claim.",
+  "register_fact_source": {
+    "author": "OmniVision",
+    "document": "OV7750/OV7251 rev1F v2.12",
+    "tables": [
+      "2-3",
+      "7-9"
+    ],
+    "pdf_sha256": "14767c37fcd6e1bfc4a95e03acadf6f5925d3410972a8d5b99e3abaf02613be4"
+  },
+  "status": "Experimental independent replacement; isolated build/fault tests and physical object-capture evidence are documented separately. Not a validated authentication product.",
+  "not_implemented": [
+    "Complete production controller migration and driver install/upgrade/rollback release",
+    "Secure identity, presentation-attack detection and login activation"
+  ],
+  "physical_register_timing": "Raw register values and software/kernel monotonic timestamps are retained. Neither19.2MHz nor38.4MHz is promoted from a hypothesis to a measured physical clock.",
+  "changed_on": "2026-11-02",
+  "changes": [
+    ">=5ms software-reset wait and exact I2C transfer checks",
+    "New transactional cached-mode and runtime-PM/stream lifecycle",
+    "New fixed gate source enable3b96:7, frame trigger3b80:4 and output direction3005:3 with readbacks; all other bits and baseline tables retained",
+    "Three-second requested software deadline; not a hard real-time hardware cutoff",
+    "Fixed-list read-only timing/exposure/PWM register audit",
+    "Consistent initial exposure range and stable exposure default metadata"
+  ]
+}
