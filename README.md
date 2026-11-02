@@ -1,50 +1,63 @@
 # Microsoft Surface Pro 7 Face ID research
 
-Research into simultaneous front RGB/IR capture on Manjaro and an eventual
-face-login system. Secure biometric authentication and PAD are not completed.
+Experimental simultaneous front RGB/IR capture on Manjaro, with an independent
+sensor lifecycle and preparation for an eventual face-login system. **Secure
+identity verification, PAD and production authentication are not implemented.**
 
-The [independent replacement source](replacement/README.md) implements a new
-OV7251 lifecycle/readback layer on a licensed Linux baseline, a hash-bound
-TensorFlow UINT8 proposal backend and tested recovery primitives. Inherited
-uncertain-license OV7251 diagnostic/STROBE patches and Caffe FP16 weights are
-excluded. This is an experimental source checkpoint with an inactive workbench installer, not a face-login release.
+## Source and licensing
 
-Kernel-derived code retains GPLv2 and upstream attribution. Standalone project
-userspace retains GPLv3. No firmware, pretrained weights, private photographs,
-embeddings, machine credentials or private conversations are included.
+The [replacement source](replacement/README.md) uses a licensed Linux OV7251
+baseline with new lifecycle/readback control, a hash-bound TensorFlow UINT8
+proposal interface, bounded capture and full shutdown/restoration contracts.
+Uncertain-license inherited OV7251 diagnostic/STROBE derivatives and the former
+FP16 dependency are excluded. Prior exposure to the old code is disclosed; no
+clean-room or legal-certification claim is made.
 
-See [verification evidence](replacement/TEST-EVIDENCE.json) and the
-[Manjaro companion](https://github.com/BogeBear/Microsoft-Surface-Pro-7-Manjaro).
+Kernel-derived code retains GPLv2 and attribution. Standalone project code uses
+GPLv3 under its file notices. The [interface and geometry prototype](interface/README.md)
+retains MIT. No firmware, pretrained weights, compiled modules, photographs,
+embeddings, credentials or private conversations are included.
 
-## New capture verification and inactive package
+## What is verified
 
-Two new presence-authorized captures each delivered30RGB+30IR frames and
-completed native/kernel/root shutdown, exact setting restoration and fresh
-eight-device idle checks. Private raw files were hash/fsync-exported and
-removed from device RAM. Only aggregate technical results are published.
+Four separate actual-presence captures each delivered 30 RGB and 30 IR frames,
+with native/kernel/light/root closure, exact restoration and fresh eight-device
+idle checks. Private raw files were exported and removed from device RAM.
+Only aggregate results are public.
 
-The diagnostic UINT8 backend found one face proposal in14/14 brighter IR
-frames per capture after spatial filtering, versus12/14 and13/14 unfiltered.
-A fixed upright RGB central window gave29/30 and17/30; this remains too unstable
-for an authentication claim. The window does not establish absence of other
-people elsewhere. No threshold was lowered; no identity comparison, enrollment,
-PAD or geometric RGB/IR calibration was performed. See replacement/PHYSICAL-EVIDENCE.json.
+The locked nine-window RGB proposal profile gives a single display group in
+29/30 frames in each new left/right sequence. A separate static-object study
+identified a horizontal-reflection mismatch between IR and RGB coordinates.
+The [inactive coordinate candidate](identity-research/RESULTS.md), with unchanged
+model, 0.8 threshold and full-frame scale, gives a single proposal in 14/14
+brighter frames in all four sequences. The preserved baseline missed all 14
+right-position frames. No proposals occur in the limited printed-object and
+low-signal controls. These correlated sequences from one participant do not
+establish identity accuracy, generalization, liveness, calibration or safety.
+The new coordinate profile still needs fresh physical qualification.
 
-See the companion Manjaro draft for the source-only inactive workbench installer
-and its install/upgrade/uninstall/rollback tests. Installing that package never
-loads a driver or enables a camera, autostart, PAM or SDDM integration.
+The [identity research boundary](identity-research/README.md) adds a one-use
+boot/account-bound attempt contract, an always-ignored diagnostic PAM module and
+an offline configuration proposal. Real libpam VM tests verify password fallback
+and required lockout/account checks. No real authentication configuration changes.
 
-The [MIT interface and geometry prototype](interface/README.md) and
-[bounded client-inventory follow-up](replacement/CLIENT-INVENTORY.md) are
-included for review. New left/right captures verify RGB spatial coverage,
-but IR detection away from centre remains unresolved; no login release is
-claimed. All public documentation and prompts are English.
+## Building and installing
 
-The separate [seven-module driver source kit](driver-build-kit/README.en.txt)
-includes the reviewed INT3472/IPU4 source and independent OV7251. It preserves
-GPLv2/MIT/UAPI notices, excludes inherited OV7251 diagnostic/STROBE derivatives
-and contains no firmware or compiled modules. All seven modules build against
-the exact target ABI. Fresh module identities differ from some recorded
-runtime versions: building the kit is not authorization to replace them or
-proof of physical validation of the fresh build. The inactive workbench omits
-this development-host kernel source kit from its device payload.
+The [source-only seven-module kit](driver-build-kit/README.en.txt) includes
+reviewed INT3472/IPU4 and independent OV7251 code with GPLv2/MIT/UAPI notices.
+All seven modules build for the exact target ABI. Some fresh IPU identities
+differ from the physically tested runtime: a successful build is not permission
+to silently replace controllers or evidence that those binaries work on hardware.
+
+The [Manjaro companion](https://github.com/BogeBear/Microsoft-Surface-Pro-7-Manjaro)
+provides an inactive workbench installer with tested install, upgrade, uninstall
+and rollback. Version 0.4 intentionally stays pinned to source commit
+153d0e24b31c94de535ca9d06e9610d62ca06073. This newer identity/coordinate follow-up
+is not silently added to its tested archive. Installation never loads drivers,
+starts cameras, enables autostart, or changes PAM/SDDM/boot/security policy.
+
+See [capture evidence](replacement/PHYSICAL-EVIDENCE.json),
+[test evidence](replacement/TEST-EVIDENCE.json),
+[client-inventory follow-up](replacement/CLIENT-INVENTORY.md) and
+[identity/coordinate verification](identity-research/VERIFICATION.json).
+Uncertainty always requires password fallback. No login release is claimed.
