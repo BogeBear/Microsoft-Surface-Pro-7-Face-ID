@@ -82,3 +82,38 @@ measurements. See RESULTS.md for limits and the next actual-presence probe.
 The companion workbench 0.4 remains intentionally pinned to the earlier camera
 source commit 153d0e24b31c94de535ca9d06e9610d62ca06073. This follow-up is not
 silently added to its already-tested archive and is not deployed to PAM or SP7.
+
+
+## Bounded diagnostic IPC foundation
+
+`diagnostic_ipc.py` is a source-only Unix-socket library with no daemon entry
+point, production users, service installer or PAM connection. The only supported
+operation is a metadata diagnostic; its only valid response is
+`backend_unavailable` and password fallback. It cannot start hardware, accept an
+identity, return a credential or read a client-supplied filesystem path.
+
+The prototype requires a root client and kernel-reported root peer, a root-only
+directory/socket, exact request/response binding to service/account/boot/nonce,
+a one-use bounded nonce cache, a 1 KiB frame limit and a 250 ms I/O budget.
+Only SDDM's future qualified root role is modeled; KDE's caller role remains
+unqualified and falls back. Requests require write-half-close, so trailing data
+does not silently become another request. Duplicate JSON keys, nonfinite or
+wrongly typed fields, extra operations, stale clocks, invalid peers and forged
+success responses are refused. Nothing authorizes a biometric result.
+
+Linux credentials identify the peer at connection/listen/socket-pair creation;
+they do not certify the server executable or its later descriptor delegation.
+The future root service must keep executable/configuration ownership and retain
+its descriptors within its reviewed role. See the Linux man-pages primary
+reference: https://man7.org/linux/man-pages/man7/unix.7.html . Socket paths are
+trusted configuration arguments, never fields supplied by the GUI/protocol.
+This root-to-root diagnostic does not implement a user-session status relay or
+the future qualified biometric evidence protocol.
+
+The expanded isolated VM suite discovers 63 tests in each role: root executes
+62 with one nonroot-only skip; UID 1000 executes 53 with ten root-only skips.
+All applicable tests pass, including actual Linux peer-credential checks and
+stalled-peer deadlines. The original 45-test PAM/lifecycle suite remains part
+of it. `make vm-tests` reproduces this role-specific suite in the isolated VM.
+Ordinary-user `make offline-tests` now discovers 50 tests with ten root-only
+skips. No host/SP7 service or privilege rule is installed.

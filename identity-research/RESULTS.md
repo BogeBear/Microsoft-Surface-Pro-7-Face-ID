@@ -79,3 +79,15 @@ or display a welcome greeting. A separate pending password request must receive
 the real backend success signal. All 41 QtTest passes include the original
 password/name tests and new timeout/stale/forged-result cases. No camera or
 privileged controller is attached, and no production theme is installed.
+
+
+## Local diagnostic transport
+
+The bounded diagnostic transport is now VM-tested with real root/nonroot Unix
+peers. The combined suite discovers 63 tests per role: 62 applicable root tests
+and 53 applicable ordinary-user tests pass; skips are explicitly role-specific.
+Credential checks, replay/schema/binding failures, forged success and partial
+or stalled peers all retain password fallback. The VM is off. This is a
+diagnostic-only foundation, not the qualified evidence broker or a live daemon.
+No PAM connector, camera operation, account policy or service activation is
+provided. A real biometric backend and trusted user-session relay remain work.

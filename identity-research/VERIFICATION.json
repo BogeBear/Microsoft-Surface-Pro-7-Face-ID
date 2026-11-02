@@ -41,5 +41,16 @@
   "QML_failures": 0,
   "QML_skips": 0,
   "production_theme_installed": false,
-  "camera_controller_attached": false
+  "camera_controller_attached": false,
+  "expanded_VM_tests_discovered_per_role": 63,
+  "expanded_VM_root_passes": 62,
+  "expanded_VM_root_skips": 1,
+  "expanded_VM_nonroot_passes": 53,
+  "expanded_VM_nonroot_skips": 10,
+  "actual_Unix_kernel_peer_checks": true,
+  "diagnostic_IO_budget_ms": 250,
+  "diagnostic_max_frame_bytes": 1024,
+  "diagnostic_authentication_success_supported": false,
+  "diagnostic_daemon_installed": false,
+  "biometric_evidence_protocol_implemented": false
 }
