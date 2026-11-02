@@ -272,5 +272,75 @@
     "independent_held_out_physical_test": false,
     "authentication_allowed": false,
     "limitations": "Exploratory scale/coverage analysis; needs new positions, fresh captures and device runtime validation. Display grouping is not identity matching or verified person exclusion."
+  },
+  "new_locked_profile_left_right_trial": {
+    "captures": 2,
+    "each_RGB_frames": 30,
+    "each_IR_frames": 30,
+    "original_passed": [
+      true,
+      true
+    ],
+    "original_errors": [
+      [],
+      []
+    ],
+    "full_native_kernel_root_closure": true,
+    "exact_settings_restored": true,
+    "independent_full8idle": true,
+    "new_real_directional_ready_per_capture": true,
+    "private_raw_export_fsync_and_REMOVAL": true,
+    "profile_locked_before_captures": true,
+    "proposal_threshold": 0.8,
+    "RGB_central_single": [
+      15,
+      0
+    ],
+    "RGB_nine_window_single": [
+      29,
+      29
+    ],
+    "IR_filtered_full_frame_single": [
+      14,
+      0
+    ],
+    "IR_brighter_frames": [
+      14,
+      14
+    ],
+    "physical_position_independently_measured": false,
+    "identity_matching": false,
+    "PAD_verified": false,
+    "authentication_allowed": false
+  },
+  "IR_spatial_experiment_rejected_as_default": {
+    "after_seeing_new_data": true,
+    "accepted_for_default": false,
+    "brighter_frames": [
+      14,
+      14
+    ],
+    "single_display_groups": [
+      0,
+      1
+    ],
+    "ambiguous_display_groups": [
+      14,
+      13
+    ],
+    "reason": "Visible-light-trained detector gives additional off-face proposals in IR tiles. Ambiguity must not be hidden. Further IR detection/calibrated RGB-to-IR region work is required.",
+    "independent_validation": false
+  },
+  "inventory_preflight_failure_and_fix": {
+    "initial_new_pose_capture_attempted": false,
+    "initial_new_pose_originals_committed": false,
+    "initial_new_pose_failed_original_preserved": true,
+    "initial_reason": "Desktop compositor descriptor inventory changed during three local attempts",
+    "root_scope_and_dark_closed": true,
+    "independent_full8idle_after_failure": true,
+    "fix": "Thread-local transient exhaustion enters existing shared-budget whole-scan retry; camera_seen is never erased",
+    "budgets_increased": false,
+    "process_killed_or_whitelisted": false,
+    "new_reader_full_capture_cycles_completed": 2
   }
 }

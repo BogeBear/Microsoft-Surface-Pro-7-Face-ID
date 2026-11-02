@@ -30,5 +30,17 @@
   "installer_VM_C_assertions": 4883,
   "installer_VM_install_uninstall_restore": true,
   "installer_VM_network_hostmounts_passthrough": false,
-  "installer_VM_off": true
+  "installer_VM_off": true,
+  "HAL_geometry_synthetic_tests": 35,
+  "passive_normal_desktop_reader_samples": 20,
+  "passive_reader_samples_all_complete": true,
+  "passive_reader_artificial_load": false,
+  "client_reader_VM_tests": 79,
+  "client_helper_VM_tests": 28,
+  "presence_direction_order_VM_tests": 26,
+  "real_root_to_user_claim_reuse_rejection": true,
+  "sanitized_English_reader_tests": 79,
+  "sanitized_English_presence_and_direction_tests": 17,
+  "HAL_QML_offscreen_tests": 25,
+  "HAL_QML_failures": 0
 }

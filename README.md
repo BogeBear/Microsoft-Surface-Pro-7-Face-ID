@@ -33,3 +33,9 @@ PAD or geometric RGB/IR calibration was performed. See replacement/PHYSICAL-EVID
 See the companion Manjaro draft for the source-only inactive workbench installer
 and its install/upgrade/uninstall/rollback tests. Installing that package never
 loads a driver or enables a camera, autostart, PAM or SDDM integration.
+
+The [MIT interface and geometry prototype](interface/README.md) and
+[bounded client-inventory follow-up](replacement/CLIENT-INVENTORY.md) are
+included for review. New left/right captures verify RGB spatial coverage,
+but IR detection away from centre remains unresolved; no login release is
+claimed. All public documentation and prompts are English.

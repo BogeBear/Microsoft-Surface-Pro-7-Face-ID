@@ -103,3 +103,26 @@ Overlap grouping is only a display convenience. It does not identify people
 or prove absence of other people. Authentication remains disabled and
 password login remains required. New positions and fresh captures, plus
 actual device runtime validation, are needed before relying on this candidate.
+
+## Locked-profile new positions and inventory recovery
+
+Two additional fresh captures with explicit left/right dialog instructions
+passed30RGB+30IR each and complete independent teardown/restoration checks.
+The fixed RGB nine-window candidate gave29/30 in both new sequences; the
+central window alone gave15/30 and0/30. This is a useful coverage improvement,
+not population accuracy or biometric verification. Filtered full-frame IR gave
+14/14 on the left and0/14 on the right despite visible facial detail. A later
+IR tiling experiment produced additional off-face proposals and is rejected
+as the default. Do not hide ambiguity or promote proposal scores to identity.
+
+The compositor-fd preflight failure was preserved. No camera/configuration
+started in that failed trial. The typed bounded reader fix then completed
+two actual capture cycles. See CLIENT-INVENTORY.md. The public reader has
+example host bindings and is not a ready privileged installation. The public
+presence/dialog counterpart is English; the private SP7 test prompts are
+localized. Real one-use presence and full shutdown contracts are unchanged.
+
+The MIT-licensed interface/geometry source is included at ../interface with
+its original notices. Its demo is a visual simulation, not authentication.
+Physical RGB-to-IR calibration and production controller/driver installation
+remain unfinished. Password login remains required.

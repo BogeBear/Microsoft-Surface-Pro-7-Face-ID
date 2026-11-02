@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=Surface HAL
+Description=HAL-inspired Surface login artwork, with SDDM result signals
+Author=SP7 IR project
+License=MIT
+Type=sddm-theme
+Version=0.1
+MainScript=Main.qml
+Theme-Id=surface-hal
+Theme-API=2.0
+QtVersion=6
