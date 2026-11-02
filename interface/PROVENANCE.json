@@ -1,8 +1,12 @@
 {
   "license": "MIT",
   "source_snapshot": "2026-10-17 interface, approved component notices2026-10-23",
-  "source_changes": "Only preview.desktop installation path adjusted; new English scope/provenance documentation",
-  "files": {
+  "source_changes": "2026-11-02: add inactive camera-research presentation, bounded timeout/password fallback, account/attempt binding and negative tests. Existing MIT license and password-backend authority retained.",
+  "QML_tests": 41,
+  "QML_failures": 0,
+  "QML_runtime": "Local Qt6 offscreen; no system login or camera activation",
+  "geometry_validation": "Synthetic and saved point correspondence tests; no physical SP7 calibration",
+  "previous_snapshot_files": {
     "interface/LICENSE": "fd288a33ab67da24b3e749026fb2c3932360bfba327ce2dbf3be089cb1ebd5af",
     "interface/geometry/reconstruct.py": "551064c821127e8285a15d5d0769cefe78d2bd1f0e8713a4af4c6484ad410ee2",
     "interface/geometry/stereo.py": "78f6f920ef0e16f1c74994236634a7a5a57835e6521544d939c7c174c87c5a5c",
@@ -21,8 +25,27 @@
     "interface/ui/tests/tst_auth.qml": "9f6302d322b1a21c5db509cbad2321512a1e2f941d5a47edeedaec42bc56a3e6",
     "interface/ui/tests/tst_greeter.qml": "4dd434353b0980131f568ff32f80c24838f6ab340a38d83d0d0b07a44a1fc6dc"
   },
-  "QML_tests": 25,
-  "QML_failures": 0,
-  "QML_runtime": "Local Qt6 offscreen; no system login or camera activation",
-  "geometry_validation": "Synthetic and saved point correspondence tests; no physical SP7 calibration"
+  "production_SDDM_or_PAM_changes": false,
+  "camera_backend_attached": false,
+  "files": {
+    "interface/LICENSE": "fd288a33ab67da24b3e749026fb2c3932360bfba327ce2dbf3be089cb1ebd5af",
+    "interface/preview.desktop": "1642e28f3debab611f1cb900b4cd1cba7b8614a3e7980f66b82d761cc80d4d6b",
+    "interface/preview.sh": "165bd0866a0e256d27eaea0c3a7bb422e54e8e7f3aca7300aeed973a102e7516",
+    "interface/geometry/reconstruct.py": "551064c821127e8285a15d5d0769cefe78d2bd1f0e8713a4af4c6484ad410ee2",
+    "interface/geometry/stereo.py": "78f6f920ef0e16f1c74994236634a7a5a57835e6521544d939c7c174c87c5a5c",
+    "interface/geometry/test_reconstruct.py": "e899b15812a2f592bebf87601b593ad2cfabd4446a824473079ad637227a02d6",
+    "interface/geometry/test_stereo.py": "13006356df9038da609494daa7533be8274822ff13d83a41392f1dc645a12a2a",
+    "interface/ui/AuthStatus.qml": "06067906b294d6c74db9d8eb28a11bd560f9937435c1a756f3f0afa231859168",
+    "interface/ui/Comparison.qml": "edb12aa1f39927d5a009b4548063d14fb81c3fdef934712f3da033adb0fee227",
+    "interface/ui/Demo.qml": "2fffe1e94e85bc8401924cc8e857a8245a27c3b116cf9051d68a44cc4978101a",
+    "interface/ui/HalEye.qml": "b69c0697ccbfcec9d61b89d5d635c96190764ca658429f5ed02f03bf3eeac376",
+    "interface/ui/LICENSE": "fd288a33ab67da24b3e749026fb2c3932360bfba327ce2dbf3be089cb1ebd5af",
+    "interface/ui/LoginSurface.qml": "c155722c1be8d93af0f2c96918765c5b7b596b24faa4d5f4ee821b21d6a6085a",
+    "interface/ui/Main.qml": "1c1b24ea54d953f4abe398e7efda6d68e250a1ce278a3cfecfac66371ab1f21a",
+    "interface/ui/metadata.desktop": "384848007270ab8b349908c6a067d11a07a7bbec4ee5b54f38b1c6d77c89b357",
+    "interface/ui/CameraResearchStatus.qml": "6d00c83558df8161d1f7afa8fc2182b28e0839df291322254166557b206bb7e3",
+    "interface/ui/tests/tst_auth.qml": "9f6302d322b1a21c5db509cbad2321512a1e2f941d5a47edeedaec42bc56a3e6",
+    "interface/ui/tests/tst_greeter.qml": "4dd434353b0980131f568ff32f80c24838f6ab340a38d83d0d0b07a44a1fc6dc",
+    "interface/ui/tests/tst_camera.qml": "64436e23f4b32ce4a8105819c3dcf015f4b42e62ce662bb1cc6b6b4ec2a111a5"
+  }
 }

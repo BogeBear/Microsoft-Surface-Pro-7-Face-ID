@@ -9,17 +9,18 @@ Rectangle {
     property bool reducedMotion: false
     property string identity: ""
     property string welcomeName: ""
+    property string statusDetail: ""
     readonly property color accent: phase === "accepted" ? "#68f7a5" : "#ff665b"
     readonly property string heading: phase === "accepted" ?
         (welcomeName.trim() ? "Welcome, " + welcomeName.trim() : "Welcome back.") :
         phase === "password_required" ? "Log in with a password" :
         phase === "verifying" ? "Verifying login" : phase === "denied" ? "Try again" :
         phase === "error" ? "Login cancelled" : "Ready when you are."
-    readonly property string description: phase === "accepted" ? "Login accepted" :
+    readonly property string description: statusDetail || (phase === "accepted" ? "Login accepted" :
         phase === "password_required" ? "Biometrics could not be verified. Use your password." :
         phase === "verifying" ? "Wait while your identity is checked." :
         phase === "denied" ? "Login could not be accepted." :
-        phase === "error" ? "You can try again." : "Choose how to log in."
+        phase === "error" ? "You can try again." : "Choose how to log in.")
     // Only the artwork is reused. This item cannot authorize or start a camera.
     Item {
         id: design

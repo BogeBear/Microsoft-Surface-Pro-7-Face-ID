@@ -36,5 +36,10 @@
   "geometric_calibration_verified": false,
   "PAD_verified": false,
   "authentication_allowed": false,
-  "password_fallback": true
+  "password_fallback": true,
+  "QML_passes_including_fixture_setup_cleanup": 41,
+  "QML_failures": 0,
+  "QML_skips": 0,
+  "production_theme_installed": false,
+  "camera_controller_attached": false
 }

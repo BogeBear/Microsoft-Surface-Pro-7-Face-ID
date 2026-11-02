@@ -67,3 +67,15 @@ Enrollment, identity matching, negative participants and spoof/PAD evaluation,
 bounded authenticated IPC, a real password-recovery drill and rollback are still
 needed before an authentication path may be enabled. All present paths fall
 back to a password. No camera has been started while the user is away.
+
+
+## GUI automation boundary
+
+The HAL-inspired prototype now has a separate account/attempt-bound research
+progress state, an eight-second presentation timeout, and explicit password
+fallback. It blocks overlapping camera/password requests, rejects stale results
+and retains unknown cleanup as a hold. Research completion cannot accept a login
+or display a welcome greeting. A separate pending password request must receive
+the real backend success signal. All 41 QtTest passes include the original
+password/name tests and new timeout/stale/forged-result cases. No camera or
+privileged controller is attached, and no production theme is installed.
