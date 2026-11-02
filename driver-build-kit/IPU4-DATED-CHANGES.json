@@ -1,0 +1,644 @@
+{
+  "schema": 1,
+  "review_date": "2026-10-23",
+  "date_interpretation": "Dates identify documented project source/patch milestones. They are not filesystem copy dates, claims of earliest invention, exact edit timestamps, authorship, or hardware validation. The 2026-10-19 freeze is a separate upper bound on source presence.",
+  "artifact_references": [
+    {
+      "id": "start4-manifest",
+      "date": "2026-10-04",
+      "date_basis": "Preserved dated startup archive, corroborated by source hashes, build manifest and technical result; not a filesystem mtime.",
+      "artifact": "source-before-manifest.json",
+      "sha256": "d7e67830685ad22b4c5960c62c4e17d0467b55f4c62d56ba430cd1fe38ebf1db"
+    },
+    {
+      "id": "start4-build",
+      "date": "2026-10-04",
+      "date_basis": "Build record in the dated startup archive.",
+      "artifact": "build-manifest.json",
+      "sha256": "c8ac9aff51ef123a7d285995c26ab49210daa681d6dcf9d698e457031877acee"
+    },
+    {
+      "id": "start4-patch",
+      "date": "2026-10-04",
+      "date_basis": "Patch and build-manifest binding in the dated startup archive.",
+      "artifact": "startup-gate.patch",
+      "sha256": "f0e4148a80dbbd61ed49ae3b99b3d0d13ae4bed632ffefe369419efec813f382"
+    },
+    {
+      "id": "life4-patch",
+      "date": "2026-10-04",
+      "date_basis": "Technical RESULTAT explicitly dated 2026-10-04; retained patch and source snapshot.",
+      "artifact": "ir-lifecycle-trace.patch",
+      "sha256": "7caaeb8561356a0529362177ad9b7dda3fc478ab9623a1ca637c22edeed79747"
+    },
+    {
+      "id": "life4-result",
+      "date": "2026-10-04",
+      "date_basis": "Explicit date in technical result; not an earliest edit timestamp.",
+      "artifact": "RESULTAT.txt",
+      "sha256": "f38b0147eb48db2c4cbb3bdfa307df12cb2cbe43398c5f4e151242288db9ce76"
+    },
+    {
+      "id": "abort5-patch",
+      "date": "2026-10-05",
+      "date_basis": "Technical RESULTAT explicitly dated 2026-10-05, build and retained patch.",
+      "artifact": "ir-abort-stop.patch",
+      "sha256": "6e6b0885e5776cc746bff9386fcc8661bb03dd7634f764e306f9da76bb2aeaa3"
+    },
+    {
+      "id": "abort5-result",
+      "date": "2026-10-05",
+      "date_basis": "Explicit date in technical result.",
+      "artifact": "RESULTAT.txt",
+      "sha256": "a4c16b993b085dc8fc1a8efdc97ca8e4fd84d6e69f23332b9fc981f4ef4208b6"
+    },
+    {
+      "id": "late5-patch",
+      "date": "2026-10-05",
+      "date_basis": "Dated project patch/build archive with separate PIN_DATA_READY error state.",
+      "artifact": "late-error-stop.patch",
+      "sha256": "c25ec24f98c92fd7f01f527715a57d3539ae732cd2ec253662b011798d7798d5"
+    },
+    {
+      "id": "late5-manifest",
+      "date": "2026-10-05",
+      "date_basis": "Retained dated manifest binding the late-error patch/source.",
+      "artifact": "manifest.json",
+      "sha256": "ded443197bc00cc51822500de8bc9b361f38ef2aafa33017c5fba5ec1ba8ea9c"
+    },
+    {
+      "id": "clock5-verification",
+      "date": "2026-10-05",
+      "date_basis": "created_at=2026-10-05T06:41:04.231259+02:00 and exact final source/patch hashes.",
+      "artifact": "verification.json",
+      "sha256": "5e67995fda20fed98a4591170e066bb0d83341cd58ba97cfd2285f231fcd2723"
+    },
+    {
+      "id": "clock5-patch",
+      "date": "2026-10-05",
+      "date_basis": "Exact patch hash verified against the timestamped verification record.",
+      "artifact": "diagnostic.patch",
+      "sha256": "3918705af52c18d5b3491e4277fe40fc9a72740d72774dfdf1f8b831ea08aa83"
+    },
+    {
+      "id": "standby14-patch",
+      "date": "2026-10-14",
+      "date_basis": "Dated development patch and matching package/module/VM records.",
+      "artifact": "receiver.patch",
+      "sha256": "dc8f9c9a182ebe44bf7d65340cfaabaff0aaa06ecee6b4c6480d6e74651ba916"
+    },
+    {
+      "id": "standby14-package",
+      "date": "2026-10-14",
+      "date_basis": "Explicit dated package identity and module binding, not a filesystem mtime.",
+      "artifact": "standby-first-update-package-20261014.json",
+      "sha256": "5fedf64196ffbf29329372534c83922e00883c574cb7beb004a0650493f28597"
+    },
+    {
+      "id": "buffer14-patch",
+      "date": "2026-10-14",
+      "date_basis": "Dated rollback source, patch and package records.",
+      "artifact": "change.patch",
+      "sha256": "66e44c6bacfb36269c43a949db10ee2ec74791040c94fedc131a494b98f074a1"
+    },
+    {
+      "id": "buffer14-package",
+      "date": "2026-10-14",
+      "date_basis": "Explicit dated package identity and module binding.",
+      "artifact": "buffer-rollback-update-package-20261014.json",
+      "sha256": "4cf31693d3a3741d66b413c134890add2d10c9488680a7cb66725415b8ef5d6a"
+    },
+    {
+      "id": "queued14-patch",
+      "date": "2026-10-14",
+      "date_basis": "Retained dated queued-sensor-start patch and later register-layout source.",
+      "artifact": "change.patch",
+      "sha256": "edd23fa6740f26c7ed80f98a8f302c24d2d19abc5b134102b9db320f20d89e6c"
+    },
+    {
+      "id": "profiles14-patch",
+      "date": "2026-10-14",
+      "date_basis": "Retained dated timing-profile patch and package record.",
+      "artifact": "change.patch",
+      "sha256": "7a67677b725f3cfdedff01c9fb10fa25199c5725fa7b20f8904f95e89d6666e9"
+    },
+    {
+      "id": "layout14-patch",
+      "date": "2026-10-14",
+      "date_basis": "Dated source/patch; module hash matches explicitly dated startup validation.",
+      "artifact": "change.patch",
+      "sha256": "e9cde1956c6272e5b218bb570bd931ab9e0a64aa07f79c9d9391c70b0ff64152"
+    },
+    {
+      "id": "layout14-validation",
+      "date": "2026-10-14",
+      "date_basis": "Explicit date field 2026-10-14; receiver hash and profile recorded. Historical runtime evidence only.",
+      "artifact": "register-layout-startup-validation-20261014.json",
+      "sha256": "7e627623c0613c274d36ab707448fadc3509efec07e939430050c6a129f39e1d"
+    },
+    {
+      "id": "clock18-patch",
+      "date": "2026-10-18",
+      "date_basis": "Exact patch replay to preserved pre-RGB source plus timestamped delivery record.",
+      "artifact": "change.patch",
+      "sha256": "d2f60db6a8aaf815863161c50691ee66c8a63d0dcbba2430881c0be641bc0283"
+    },
+    {
+      "id": "clock18-delivery",
+      "date": "2026-10-18",
+      "date_basis": "created_utc=2026-10-18T05:30:25.153634+00:00; dated inactive package.",
+      "artifact": "clock-readback-delivery-20261018.json",
+      "sha256": "b704d4ae7a970e8f204338260b4c48315a27e7855a743842360054818321b05b"
+    },
+    {
+      "id": "rgb19-patch",
+      "date": "2026-10-19",
+      "date_basis": "Patch exactly replays into the source later bound to the 2026-10-19 frozen package.",
+      "artifact": "candidate.patch",
+      "sha256": "6ab48fd803aa51bee3ec675dbf70578a4ffe373ebf24d7b1f44f0133034b4799"
+    },
+    {
+      "id": "rgb19-generator",
+      "date": "2026-10-19",
+      "date_basis": "Embedded helper matches source exactly; documentary date bounded by frozen 2026-10-19 package, not exact original edit time.",
+      "artifact": "prepare-rgb-bounded-driver.py",
+      "sha256": "f0a2d17373a44aad9f29fc54bbcb90838d3a3e89e687dbfe9056e7878d374f03"
+    },
+    {
+      "id": "dual19-patch",
+      "date": "2026-10-19",
+      "date_basis": "Manifest-bound six-file patch, replayed exactly; frozen package timestamp 2026-10-19T18:49:17.925391+00:00.",
+      "artifact": "dual-driver.patch",
+      "sha256": "035a8ec1a75b1db49246f036fb1d9d9ffdce8521f680c8133b1d6e8fbff52ba5"
+    },
+    {
+      "id": "freeze19-record",
+      "date": "2026-10-19",
+      "date_basis": "Explicit created_utc timestamp is a freeze date, not the creation date of all source code.",
+      "artifact": "DUAL-FUNCTIONAL-PACKAGE.json",
+      "sha256": "b7b822090f5b6db99cec8ea69c2641bca5c22b2436280a1542bbca0314b8e3b2"
+    },
+    {
+      "id": "freeze19-manifest",
+      "date": "2026-10-19",
+      "date_basis": "Manifest binding source archive and dual-route patch to frozen package.",
+      "artifact": "MANIFEST.json",
+      "sha256": "507a152f0d907f565eaefb3876800ffcf0fc5cbb69405112ae0d4efd329726bb"
+    }
+  ],
+  "frozen_current_source": {
+    "record_created_utc": "2026-10-19T18:49:17.925391+00:00",
+    "record_sha256": "b7b822090f5b6db99cec8ea69c2641bca5c22b2436280a1542bbca0314b8e3b2",
+    "archive_sha256": "1acc9a8dfea70cc6aafed8182d2e705c705399ccc9ab77876dd4d6ba30bbbc72",
+    "all_13_selected_sources_match": true,
+    "files": [
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2-be-soc.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-csi2-be-soc.c",
+        "sha256": "bf28d9432aff62b9f07d8d59d3c77beef69d2bd72e95b11f6d74b21cc3145174"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-csi2.c",
+        "sha256": "4ec67ffac7a78f535ddad5ea7aa854dd0695188b9898540450d5d3dab95d7389"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-front-rgb-policy.h",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-front-rgb-policy.h",
+        "sha256": "dd0f1a0694762a2576ccdc3522b6c4b2681b2d9d1117c844c3d47591cee3b23b"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-pipeline-context.h",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-pipeline-context.h",
+        "sha256": "2c43f992de49a5eb9990a1240123a03d536715504eec0545d19aaeaabbe2bec6"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-queue.c",
+        "sha256": "77ad48eb4d76a91313594b98de39b719ac0306442d1a811a165491113f891a3b"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.h",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-queue.h",
+        "sha256": "3fb88d61ed14ab4f2cf983958b3419da4a74a3004e74e3d51072a674e91a590a"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-subdev.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-subdev.c",
+        "sha256": "df592e12b3dcb5f19337330d44a95d24e09dbd9b9c58985351b1e756fe4bb24d"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-video.c",
+        "sha256": "4f3f5643d7bc565493fc008dbb347b2d80306704cb469b22b600b54476c31d94"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.h",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys-video.h",
+        "sha256": "c2d3e84f21792293c88bb5d0afaafe9163e748835443118aa4738e072ba35ba6"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys.c",
+        "sha256": "064a85cb113dedd2832857b298d60300deaa27fa658fb40ac95a9e0f4a5b3d38"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys.h",
+        "archive_member": "driver/drivers/media/pci/intel/ipu-isys.h",
+        "sha256": "56ff61a9a4c6486795b2a5a2e765d80ed6f66b9ac1cc1e7436901ad9c0e5431e"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu4/ipu4-isys.c",
+        "sha256": "f71dbe88f6928ad4303f7aa354bc69c684fdf3e5b191cc505588bb30d1e37e04"
+      },
+      {
+        "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-isys-csi2.c",
+        "archive_member": "driver/drivers/media/pci/intel/ipu4/ipu4p-isys-csi2.c",
+        "sha256": "94e0f4ab4ae44ea3190f875a1405d4500a7cc384e666604addb07d229aef646d"
+      }
+    ]
+  },
+  "exact_patch_replays": [
+    {
+      "id": "clock18-exact",
+      "patch_sha256": "d2f60db6a8aaf815863161c50691ee66c8a63d0dcbba2430881c0be641bc0283",
+      "exact_output_matches": [
+        {
+          "path": "ipu-isys-queue.c",
+          "sha256": "5019aa2926dec9b05ecf949cd304de513c3adf508d967911858e365e7a6da5fb"
+        }
+      ],
+      "fuzz": 0,
+      "exit": 0
+    },
+    {
+      "id": "rgb19-exact",
+      "patch_sha256": "6ab48fd803aa51bee3ec675dbf70578a4ffe373ebf24d7b1f44f0133034b4799",
+      "exact_output_matches": [
+        {
+          "path": "ipu-isys-queue.c",
+          "sha256": "77ad48eb4d76a91313594b98de39b719ac0306442d1a811a165491113f891a3b"
+        },
+        {
+          "path": "ipu-isys-video.c",
+          "sha256": "02fbef363f0ff0c7c2d2eac23d308950796304c570feadd96adc554d73b688e3"
+        },
+        {
+          "path": "ipu-isys.c",
+          "sha256": "064a85cb113dedd2832857b298d60300deaa27fa658fb40ac95a9e0f4a5b3d38"
+        },
+        {
+          "path": "ipu-isys-front-rgb-policy.h",
+          "sha256": "dd0f1a0694762a2576ccdc3522b6c4b2681b2d9d1117c844c3d47591cee3b23b"
+        }
+      ],
+      "fuzz": 0,
+      "exit": 0
+    },
+    {
+      "id": "dual19-exact",
+      "patch_sha256": "035a8ec1a75b1db49246f036fb1d9d9ffdce8521f680c8133b1d6e8fbff52ba5",
+      "exact_output_matches": [
+        {
+          "path": "drivers/media/pci/intel/ipu-isys-csi2-be-soc.c",
+          "sha256": "bf28d9432aff62b9f07d8d59d3c77beef69d2bd72e95b11f6d74b21cc3145174"
+        },
+        {
+          "path": "drivers/media/pci/intel/ipu-isys-csi2.c",
+          "sha256": "4ec67ffac7a78f535ddad5ea7aa854dd0695188b9898540450d5d3dab95d7389"
+        },
+        {
+          "path": "drivers/media/pci/intel/ipu-isys-subdev.c",
+          "sha256": "df592e12b3dcb5f19337330d44a95d24e09dbd9b9c58985351b1e756fe4bb24d"
+        },
+        {
+          "path": "drivers/media/pci/intel/ipu-isys-video.c",
+          "sha256": "4f3f5643d7bc565493fc008dbb347b2d80306704cb469b22b600b54476c31d94"
+        },
+        {
+          "path": "drivers/media/pci/intel/ipu-isys.h",
+          "sha256": "56ff61a9a4c6486795b2a5a2e765d80ed6f66b9ac1cc1e7436901ad9c0e5431e"
+        },
+        {
+          "path": "drivers/media/pci/intel/ipu-isys-pipeline-context.h",
+          "sha256": "2c43f992de49a5eb9990a1240123a03d536715504eec0545d19aaeaabbe2bec6"
+        }
+      ],
+      "fuzz": 0,
+      "exit": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2-be-soc.c",
+      "source_sha256": "bf28d9432aff62b9f07d8d59d3c77beef69d2bd72e95b11f6d74b21cc3145174",
+      "draft_sha256": "a8eb7e84065d1aafbeb300b44bf01f53b6817fdde5b7285040b2bb82d357c593",
+      "documented_changes": [
+        {
+          "date": "2026-10-19",
+          "summary": "Fixed BE SOC pad pairing and link-validation pipeline lookup.",
+          "evidence_ids": [
+            "dual19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-19: Fixed BE SOC pad pairing and link-validation pipeline lookup.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-csi2.c",
+      "source_sha256": "4ec67ffac7a78f535ddad5ea7aa854dd0695188b9898540450d5d3dab95d7389",
+      "draft_sha256": "ebcf7bae4c4a9888598cb25be7c7a9e8d1ab241fd2ceaec17db25a7ae4dfc9b7",
+      "documented_changes": [
+        {
+          "date": "2026-10-19",
+          "summary": "CSI-2 link validation uses the matching pad/pipeline context.",
+          "evidence_ids": [
+            "dual19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-19: CSI-2 link validation uses the matching pad/pipeline context.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-front-rgb-policy.h",
+      "source_sha256": "dd0f1a0694762a2576ccdc3522b6c4b2681b2d9d1117c844c3d47591cee3b23b",
+      "draft_sha256": "d8d37536c7f152818a8395fd8579322ea2d1e743fef5eb05ccf4288b8c1d505f",
+      "documented_changes": [
+        {
+          "date": "2026-10-19",
+          "summary": "New SP7 front-RGB route and bounded start-abort helper.",
+          "evidence_ids": [
+            "rgb19-patch",
+            "rgb19-generator"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * New GPLv2 project helper for the Intel IPU4/SP7 camera stack.\n * Documented project source/patch records:\n * 2026-10-19: New SP7 front-RGB route and bounded start-abort helper.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-pipeline-context.h",
+      "source_sha256": "2c43f992de49a5eb9990a1240123a03d536715504eec0545d19aaeaabbe2bec6",
+      "draft_sha256": "c57fec8116a86637ddab9f7c7ad6caa8cafc45f1e8bdf14f5b36b722e5e82146",
+      "documented_changes": [
+        {
+          "date": "2026-10-19",
+          "summary": "New helper separates link-validation context from pad ownership.",
+          "evidence_ids": [
+            "dual19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * New GPLv2 project helper for the Intel IPU4/SP7 camera stack.\n * Documented project source/patch records:\n * 2026-10-19: New helper separates link-validation context from pad\n * ownership.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.c",
+      "source_sha256": "77ad48eb4d76a91313594b98de39b719ac0306442d1a811a165491113f891a3b",
+      "draft_sha256": "5f8bdbc087c0307d0097953aba2590c181b11cdaafd3d17cf84af7dd4f736c8f",
+      "documented_changes": [
+        {
+          "date": "2026-10-04",
+          "summary": "IR start verification and queue-lifecycle diagnostics.",
+          "evidence_ids": [
+            "start4-patch",
+            "start4-build",
+            "life4-patch",
+            "life4-result"
+          ]
+        },
+        {
+          "date": "2026-10-05",
+          "summary": "Failed-start rollback and bounded raw timestamp diagnostics.",
+          "evidence_ids": [
+            "abort5-patch",
+            "abort5-result",
+            "clock5-patch",
+            "clock5-verification"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "summary": "Pending-start buffer transaction and deferred sensor start.",
+          "evidence_ids": [
+            "buffer14-patch",
+            "buffer14-package",
+            "queued14-patch"
+          ]
+        },
+        {
+          "date": "2026-10-18",
+          "summary": "Bounded read-only clock-control and PCI identity diagnostics.",
+          "evidence_ids": [
+            "clock18-patch",
+            "clock18-delivery"
+          ]
+        },
+        {
+          "date": "2026-10-19",
+          "summary": "Bounded SP7 front-RGB start verification and rollback.",
+          "evidence_ids": [
+            "rgb19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-04: IR start verification and queue-lifecycle diagnostics.\n * 2026-10-05: Failed-start rollback and bounded raw timestamp diagnostics.\n * 2026-10-14: Pending-start buffer transaction and deferred sensor start.\n * 2026-10-18: Bounded read-only clock-control and PCI identity diagnostics.\n * 2026-10-19: Bounded SP7 front-RGB start verification and rollback.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-queue.h",
+      "source_sha256": "3fb88d61ed14ab4f2cf983958b3419da4a74a3004e74e3d51072a674e91a590a",
+      "draft_sha256": "7195807409bdbc7cf7d434dbc0e73915e8cd32692346fa5749ef021949d46765",
+      "documented_changes": [
+        {
+          "date": "2026-10-14",
+          "summary": "Pending-start state and held-completion list declarations.",
+          "evidence_ids": [
+            "buffer14-patch",
+            "buffer14-package"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-14: Pending-start state and held-completion list declarations.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-subdev.c",
+      "source_sha256": "df592e12b3dcb5f19337330d44a95d24e09dbd9b9c58985351b1e756fe4bb24d",
+      "draft_sha256": "c7c096ec23a89e31a88684536aa3b4e857ef1b812fe7ec0b04bb787f12aa06e0",
+      "documented_changes": [
+        {
+          "date": "2026-10-19",
+          "summary": "Independent BE SOC pad propagation and pipeline validation.",
+          "evidence_ids": [
+            "dual19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-19: Independent BE SOC pad propagation and pipeline validation.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.c",
+      "source_sha256": "4f3f5643d7bc565493fc008dbb347b2d80306704cb469b22b600b54476c31d94",
+      "draft_sha256": "6b60527aadcb61e2afc3e65618b76253e8d81d62bc8e9b72892a58c82d196fb7",
+      "documented_changes": [
+        {
+          "date": "2026-10-04",
+          "summary": "IR firmware-stop/lifecycle diagnostics.",
+          "evidence_ids": [
+            "life4-patch",
+            "life4-result"
+          ]
+        },
+        {
+          "date": "2026-10-05",
+          "summary": "STOP policy for failed IR starts and last-buffer errors.",
+          "evidence_ids": [
+            "abort5-patch",
+            "abort5-result",
+            "late5-patch",
+            "late5-manifest"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "summary": "Prepared-sensor ownership, queued start and unwind receipts.",
+          "evidence_ids": [
+            "standby14-patch",
+            "standby14-package",
+            "buffer14-patch",
+            "queued14-patch"
+          ]
+        },
+        {
+          "date": "2026-10-19",
+          "summary": "Bounded front-RGB rollback and independent pad-aware pipelines.",
+          "evidence_ids": [
+            "rgb19-patch",
+            "dual19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-04: IR firmware-stop/lifecycle diagnostics.\n * 2026-10-05: STOP policy for failed IR starts and last-buffer errors.\n * 2026-10-14: Prepared-sensor ownership, queued start and unwind receipts.\n * 2026-10-19: Bounded front-RGB rollback and independent pad-aware\n * pipelines.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys-video.h",
+      "source_sha256": "c2d3e84f21792293c88bb5d0afaafe9163e748835443118aa4738e072ba35ba6",
+      "draft_sha256": "1d7cf265e657c40eab6eea5eb2639e5d02dc96dbcff3114ba7925336ab827975",
+      "documented_changes": [
+        {
+          "date": "2026-10-05",
+          "summary": "Separate last PIN_DATA_READY error state.",
+          "evidence_ids": [
+            "late5-patch",
+            "late5-manifest"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "summary": "Prepared-sensor state and queued-start declaration.",
+          "evidence_ids": [
+            "standby14-patch",
+            "standby14-package",
+            "queued14-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-05: Separate last PIN_DATA_READY error state.\n * 2026-10-14: Prepared-sensor state and queued-start declaration.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys.c",
+      "source_sha256": "064a85cb113dedd2832857b298d60300deaa27fa658fb40ac95a9e0f4a5b3d38",
+      "draft_sha256": "416a5486aca47a70ccca80080ca9c80055df821c7cff1dcf1e20c1597a277af0",
+      "documented_changes": [
+        {
+          "date": "2026-10-04",
+          "summary": "IR firmware acknowledgement diagnostics.",
+          "evidence_ids": [
+            "life4-patch",
+            "life4-result"
+          ]
+        },
+        {
+          "date": "2026-10-05",
+          "summary": "Retain last PIN_DATA_READY error separately.",
+          "evidence_ids": [
+            "late5-patch",
+            "late5-manifest"
+          ]
+        },
+        {
+          "date": "2026-10-19",
+          "summary": "Front-RGB firmware acknowledgement diagnostics.",
+          "evidence_ids": [
+            "rgb19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-04: IR firmware acknowledgement diagnostics.\n * 2026-10-05: Retain last PIN_DATA_READY error separately.\n * 2026-10-19: Front-RGB firmware acknowledgement diagnostics.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu-isys.h",
+      "source_sha256": "56ff61a9a4c6486795b2a5a2e765d80ed6f66b9ac1cc1e7436901ad9c0e5431e",
+      "draft_sha256": "6e8e18c23c0586de1b6b82ad49c5e8f9a375850d4c0619cdeb7fd11322449bcc",
+      "documented_changes": [
+        {
+          "date": "2026-10-19",
+          "summary": "Transient link-validation pipeline context and helper include.",
+          "evidence_ids": [
+            "dual19-patch"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-19: Transient link-validation pipeline context and helper include.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4-isys.c",
+      "source_sha256": "f71dbe88f6928ad4303f7aa354bc69c684fdf3e5b191cc505588bb30d1e37e04",
+      "draft_sha256": "48d16de21702f0ec613d887f70a8091babdff4026db0d763d3f8f9fbe27f28b9",
+      "documented_changes": [
+        {
+          "date": "2026-10-04",
+          "summary": "Exact DMI product-name match for Surface Pro 7 documented.",
+          "evidence_ids": [
+            "start4-manifest",
+            "start4-build"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-04: Exact DMI product-name match for Surface Pro 7 documented.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    },
+    {
+      "path": "drivers/ipu4/drivers/media/pci/intel/ipu4/ipu4p-isys-csi2.c",
+      "source_sha256": "94e0f4ab4ae44ea3190f875a1405d4500a7cc384e666604addb07d229aef646d",
+      "draft_sha256": "af2e7366fb331662a528698372aaa42f1cb955520e9838d1f6c2955c95f0c814",
+      "documented_changes": [
+        {
+          "date": "2026-10-04",
+          "summary": "Selectable SP7 front-receiver timing quirk documented.",
+          "evidence_ids": [
+            "start4-manifest",
+            "start4-build"
+          ]
+        },
+        {
+          "date": "2026-10-14",
+          "summary": "Bounded source-6 timing profiles and register-layout readback.",
+          "evidence_ids": [
+            "profiles14-patch",
+            "layout14-patch",
+            "layout14-validation"
+          ]
+        }
+      ],
+      "notice": "/*\n * SP7 IR project modification notice.\n * Derived from the Intel IPU4 driver and the SP7 ports in\n * thisiscamk/sp7-ipu4-camera and georgemihaila/sp7-ipu4-camera.\n * Documented project source/patch records:\n * 2026-10-04: Selectable SP7 front-receiver timing quirk documented.\n * 2026-10-14: Bounded source-6 timing profiles and register-layout readback.\n * Dates identify retained records, not exact original edit timestamps.\n * 2026-10-23: This modification notice added.\n * Original copyright and license notices are retained.\n * Repository-root references:\n * IPU4-PROVENANCE.json (source revisions and per-file comparisons).\n * IPU4-DATED-CHANGES.json (dated records and checksum bindings).\n * patches/ipu4-source-changes.patch (changes against September port).\n */"
+    }
+  ],
+  "publication_approved": false,
+  "SP7_access": false,
+  "GitHub_write": false,
+  "publication_candidate_context": {
+    "date": "2026-10-23",
+    "kind": "Local English review candidate, not a published release",
+    "hash_semantics": "Existing source/draft/patch hashes identify the named historical or review snapshots. Current candidate bytes are bound by SHA256SUMS and docs/source-index.json. Different comment/translation hashes do not rewrite historical evidence.",
+    "scope": "Component-specific provenance; no blanket license clearance or hardware/authentication certificate.",
+    "release_approval": false
+  }
+}

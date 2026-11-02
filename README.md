@@ -39,3 +39,12 @@ The [MIT interface and geometry prototype](interface/README.md) and
 included for review. New left/right captures verify RGB spatial coverage,
 but IR detection away from centre remains unresolved; no login release is
 claimed. All public documentation and prompts are English.
+
+The separate [seven-module driver source kit](driver-build-kit/README.en.txt)
+includes the reviewed INT3472/IPU4 source and independent OV7251. It preserves
+GPLv2/MIT/UAPI notices, excludes inherited OV7251 diagnostic/STROBE derivatives
+and contains no firmware or compiled modules. All seven modules build against
+the exact target ABI. Fresh module identities differ from some recorded
+runtime versions: building the kit is not authorization to replace them or
+proof of physical validation of the fresh build. The inactive workbench omits
+this development-host kernel source kit from its device payload.
