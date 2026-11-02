@@ -88,3 +88,18 @@ PAD or geometric RGB/IR calibration was performed. See PHYSICAL-EVIDENCE.json.
 See the companion Manjaro draft for the source-only inactive workbench installer
 and its install/upgrade/uninstall/rollback tests. Installing that package never
 loads a driver or enables a camera, autostart, PAM or SDDM integration.
+
+## Next spatial proposal candidate
+
+The optional `userspace/spatial_proposals.py` checks nine fixed overlapping
+half-size RGB windows, including corners, edge middles and centre. Errors
+in any view stop the result; a bounded candidate budget prevents unbounded
+display grouping. The same unchanged0.8 model threshold gives29/30 and25/30
+single display groups on the two new captures, versus29/30 and17/30 for the
+central window alone. This is exploratory reuse of those two captures, not
+a held-out physical test. Seven synthetic coverage/error/budget tests pass.
+
+Overlap grouping is only a display convenience. It does not identify people
+or prove absence of other people. Authentication remains disabled and
+password login remains required. New positions and fresh captures, plus
+actual device runtime validation, are needed before relying on this candidate.

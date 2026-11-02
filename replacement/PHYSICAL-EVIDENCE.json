@@ -246,5 +246,31 @@
     "identity_matching_performed": false,
     "PAD_verified": false,
     "authentication_allowed": false
+  },
+  "exploratory_nine_view_RGB_proposals": {
+    "fixed_half_size_windows": 9,
+    "proposal_threshold": 0.8,
+    "frames_per_capture": [
+      30,
+      30
+    ],
+    "single_display_groups": [
+      29,
+      25
+    ],
+    "ambiguous_display_groups": [
+      0,
+      0
+    ],
+    "development_host_mean_inference_seconds": [
+      0.06848826000004919,
+      0.06730768483327362
+    ],
+    "same_two_new_captures": true,
+    "RGB_IR_identity_matching": false,
+    "full_field_multiple_person_exclusion_verified": false,
+    "independent_held_out_physical_test": false,
+    "authentication_allowed": false,
+    "limitations": "Exploratory scale/coverage analysis; needs new positions, fresh captures and device runtime validation. Display grouping is not identity matching or verified person exclusion."
   }
 }
